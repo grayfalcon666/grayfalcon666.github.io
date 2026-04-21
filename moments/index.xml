@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 24 Feb 2026 16:53:44 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 01:50:25 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/moments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>每日两句</title>
+      <link></link>
+      <pubDate>Wed, 22 Apr 2026 01:50:25 +0800</pubDate>
+      <guid></guid>
+      <description>&lt;p&gt;今天搬迁了博客到github上，打算这几天写篇文章讨论一下。然后真的好久不见了呀😬&lt;/p&gt;</description>
+    </item>
     <item>
       <title>每日一句</title>
       <link></link>
