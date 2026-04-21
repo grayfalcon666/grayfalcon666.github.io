@@ -11,8 +11,58 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 04:24:04 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>标题</title>
+      <link>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</link>
+      <pubDate>Wed, 22 Apr 2026 04:24:04 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</guid>
+      <description>&lt;p&gt;本文持续更新&lt;/p&gt;
+&lt;h2 id=&#34;堆栈&#34;&gt;堆、栈&lt;/h2&gt;
+&lt;p&gt;它们是程序运行时，两块&lt;strong&gt;用途完全不同&lt;/strong&gt;的内存区域。&lt;/p&gt;
+&lt;h3 id=&#34;栈stack-函数的临时小抽屉&#34;&gt;栈（Stack）—— 函数的临时小抽屉&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;每个函数运行时，都会在栈上占一小块空间；&lt;/li&gt;
+&lt;li&gt;函数里的&lt;strong&gt;局部变量、参数&lt;/strong&gt;默认都往栈上放；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;函数一结束，栈空间自动清空，变量直接销毁&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;速度极快，几乎零开销；&lt;/li&gt;
+&lt;li&gt;不需要 GC 垃圾回收。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特点：&lt;strong&gt;自动申请、自动释放，快、小、临时。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;堆heap-全局公共大仓库&#34;&gt;堆（Heap）—— 全局公共大仓库&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一块共享的大内存；&lt;/li&gt;
+&lt;li&gt;放那些&lt;strong&gt;函数结束后还需要活着&lt;/strong&gt;的变量；&lt;/li&gt;
+&lt;li&gt;不会自动销毁，靠 Go 的 GC 来回收；&lt;/li&gt;
+&lt;li&gt;分配慢、寻址慢、有 GC 开销。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特点：&lt;strong&gt;手动 / 编译器决定分配，GC 回收，慢、大、持久。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;在栈还是堆&#34;&gt;在栈还是堆&lt;/h3&gt;
+&lt;p&gt;直接用 Go 自带的&lt;strong&gt;逃逸分析命令&lt;/strong&gt;看：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;go build -gcflags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-m&amp;#34;&lt;/span&gt; main.go
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出里会出现两种关键行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;does not escape&lt;/code&gt; → 变量在 &lt;strong&gt;栈&lt;/strong&gt; 上&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;escapes to heap&lt;/code&gt; → 变量逃逸到 &lt;strong&gt;堆&lt;/strong&gt; 上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slice&#34;&gt;slice&lt;/h2&gt;
+&lt;h3 id=&#34;数据结构&#34;&gt;数据结构&lt;/h3&gt;
+&lt;p&gt;slice是引用类型，共享内存地址
+&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/main/20260325001017658.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;切片扩容&#34;&gt;切片扩容&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;只有append才会触发扩容&lt;/strong&gt;！手动make只是新建切片。&lt;/p&gt;
+&lt;p&gt;扩容会&lt;strong&gt;彻底替换底层数组&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;计算新的容量（按增长规则）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在堆上新建一个更大的底层数组&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;把旧数组的所有数据&lt;strong&gt;完整拷贝&lt;/strong&gt;到新数组&lt;/li&gt;
+&lt;li&gt;切片指针指向新数组，更新 &lt;code&gt;len&lt;/code&gt;/&lt;code&gt;cap&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;旧数组如果没有其他引用，会被 &lt;strong&gt;GC 自动回收&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;容量增长规则go-118-最新版&#34;&gt;容量增长规则（Go 1.18+ 最新版）&lt;/h5&gt;
+&lt;p&gt;小切片快速扩容，大切片平缓扩容，避免内存浪费&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Hugo API：快速发布你的hugo文章!</title>
       <link>https://tech.jamaisvu.cn/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
