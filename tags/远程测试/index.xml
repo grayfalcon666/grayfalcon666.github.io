@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>远程测试 on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</link>
+    <link>https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</link>
     <description>Recent content in 远程测试 on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Sat, 27 Sep 2025 22:55:35 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>excalicloudstore 使用说明</title>
-      <link>https://grayfalcon666.github.io/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
+      <link>https://tech.jamaisvu.cn/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Sat, 27 Sep 2025 22:55:35 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</guid>
       <description>&lt;p&gt;由博主开发的docker镜像，现已发布在dokcer hub上 grayfalcon/excalicloudstore
 通过 &lt;strong&gt;Docker 单机部署&lt;/strong&gt; 和 &lt;strong&gt;Docker Compose 部署&lt;/strong&gt; 两种方式，快速使用 &lt;code&gt;grayfalcon/excalicloudstore&lt;/code&gt; 镜像（基于 Excalidraw 开发，支持 S3 兼容存储的云端绘图工具）。&lt;/p&gt;
 &lt;h2 id=&#34;一前提条件&#34;&gt;一、前提条件&lt;/h2&gt;

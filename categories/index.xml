@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/categories/</link>
+    <link>https://tech.jamaisvu.cn/categories/</link>
     <description>Recent content in Categories on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,19 +12,19 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>技术</title>
-      <link>https://grayfalcon666.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+      <link>https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <guid>https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     <item>
       <title>工具</title>
-      <link>https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
   </channel>

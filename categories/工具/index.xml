@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>工具 on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content in 工具 on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Sat, 06 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>💻电脑时间管理大师：Manic Time 最易懂的速成教程</title>
-      <link>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</link>
+      <link>https://tech.jamaisvu.cn/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;image.png|450&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20250906144436192.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;p&gt;博主有段时间特别痴迷记录生活习惯，我曾在 4 月份陷入 手动复盘的困境—— 想记录电脑使用习惯却难以坚持：手动记太麻烦、整理数据费时间，一想到复盘流程就头大。直到遇到 &lt;strong&gt;Manic Time&lt;/strong&gt;，这款电脑时间管理软件彻底解决了我的痛点：它能静默在后台运行，从开机到关机全自动记录电脑操作（温馨提示：隐私相关记录还是别记录了哈🤣）。&lt;/p&gt;
@@ -47,9 +47,9 @@
     </item>
     <item>
       <title>Obsidian 多端同步：用七牛云 &#43; Remotely Save 实现手机与电脑无缝协作</title>
-      <link>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</link>
+      <link>https://tech.jamaisvu.cn/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906031852383.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;引言灵感随时记多端不脱节&#34;&gt;引言：灵感随时记，多端不脱节&lt;/h2&gt;
 &lt;p&gt;Obsidian 的白板功能对&lt;strong&gt;梳理编程数据流&lt;/strong&gt;、&lt;strong&gt;搭建知识体系&lt;/strong&gt;十分友好，但很多时候灵感来袭时我们并不在电脑前，只能用手机临时记录，后续还要手动迁移到电脑端的 Obsidian 中，既繁琐又容易遗漏细节。&lt;/p&gt;

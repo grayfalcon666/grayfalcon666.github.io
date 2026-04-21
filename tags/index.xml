@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/tags/</link>
+    <link>https://tech.jamaisvu.cn/tags/</link>
     <description>Recent content in Tags on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,75 +12,75 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>API</title>
-      <link>https://grayfalcon666.github.io/tags/api/</link>
+      <link>https://tech.jamaisvu.cn/tags/api/</link>
       <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/api/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/api/</guid>
       <description></description>
     </item>
     <item>
       <title>GO</title>
-      <link>https://grayfalcon666.github.io/tags/go/</link>
+      <link>https://tech.jamaisvu.cn/tags/go/</link>
       <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/go/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/go/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>https://grayfalcon666.github.io/tags/ai/</link>
+      <link>https://tech.jamaisvu.cn/tags/ai/</link>
       <pubDate>Mon, 06 Oct 2025 02:27:29 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/ai/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>代理</title>
-      <link>https://grayfalcon666.github.io/tags/%E4%BB%A3%E7%90%86/</link>
+      <link>https://tech.jamaisvu.cn/tags/%E4%BB%A3%E7%90%86/</link>
       <pubDate>Fri, 03 Oct 2025 17:08:45 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/%E4%BB%A3%E7%90%86/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/%E4%BB%A3%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
       <title>网络</title>
-      <link>https://grayfalcon666.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+      <link>https://tech.jamaisvu.cn/tags/%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Fri, 03 Oct 2025 17:08:45 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     <item>
       <title>架构</title>
-      <link>https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+      <link>https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Sun, 28 Sep 2025 23:36:15 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/</guid>
       <description></description>
     </item>
     <item>
       <title>远程测试</title>
-      <link>https://grayfalcon666.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</link>
+      <link>https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sat, 27 Sep 2025 22:55:35 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://grayfalcon666.github.io/tags/hugo/</link>
+      <link>https://tech.jamaisvu.cn/tags/hugo/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/hugo/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>PaperMod</title>
-      <link>https://grayfalcon666.github.io/tags/papermod/</link>
+      <link>https://tech.jamaisvu.cn/tags/papermod/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/papermod/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/papermod/</guid>
       <description></description>
     </item>
     <item>
       <title>标签测试</title>
-      <link>https://grayfalcon666.github.io/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</link>
+      <link>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://grayfalcon666.github.io/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</guid>
       <description></description>
     </item>
   </channel>

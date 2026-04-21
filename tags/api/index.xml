@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>API on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/tags/api/</link>
+    <link>https://tech.jamaisvu.cn/tags/api/</link>
     <description>Recent content in API on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/tags/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo API：快速发布你的hugo文章!</title>
-      <link>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
+      <link>https://tech.jamaisvu.cn/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
       <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</guid>
       <description>&lt;p&gt;这是博主开源到github的另一个项目，此处贴的是使用文档。如果是跟我一样使用hugo建站并且苦于如何发布的小伙伴们，我强力推荐这个api，你会用上的！！&lt;/p&gt;
 &lt;p&gt;✿✿✿来支持一波吧✿✿✿&lt;/p&gt;
 &lt;p&gt;👇👇👇&lt;/p&gt;

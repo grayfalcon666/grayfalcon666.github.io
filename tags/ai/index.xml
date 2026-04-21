@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AI on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/tags/ai/</link>
+    <link>https://tech.jamaisvu.cn/tags/ai/</link>
     <description>Recent content in AI on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 Oct 2025 02:27:29 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>为immich配置机器学习与硬件加速</title>
-      <link>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://tech.jamaisvu.cn/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 06 Oct 2025 02:27:29 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description>&lt;h2 id=&#34;环境介绍&#34;&gt;环境介绍&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;OS: Ubuntu 24.04.2 LTS&lt;/li&gt;

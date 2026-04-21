@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>架构 on Jamaisvu&#39;s blog</title>
-    <link>https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+    <link>https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/</link>
     <description>Recent content in 架构 on Jamaisvu&#39;s blog</description>
     <image>
       <title>Jamaisvu&#39;s blog</title>
@@ -12,12 +12,12 @@
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
     <lastBuildDate>Sun, 28 Sep 2025 23:36:15 +0800</lastBuildDate>
-    <atom:link href="https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一篇讲清api与webhook</title>
-      <link>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</link>
+      <link>https://tech.jamaisvu.cn/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</link>
       <pubDate>Sun, 28 Sep 2025 23:36:15 +0800</pubDate>
-      <guid>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</guid>
       <description>&lt;h2 id=&#34;基本区别&#34;&gt;基本区别&lt;/h2&gt;
 &lt;p&gt;许多小白第一次接触webhook的时候常常会与api混淆，那么我们先来看看两者的本质差别在哪：&lt;/p&gt;
 &lt;h3 id=&#34;api&#34;&gt;api&lt;/h3&gt;
