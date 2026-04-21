@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>架构 on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+    <description>Recent content in 架构 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Sep 2025 23:36:15 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一篇讲清api与webhook</title>
+      <link>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</link>
+      <pubDate>Sun, 28 Sep 2025 23:36:15 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</guid>
+      <description>&lt;h2 id=&#34;基本区别&#34;&gt;基本区别&lt;/h2&gt;
+&lt;p&gt;许多小白第一次接触webhook的时候常常会与api混淆，那么我们先来看看两者的本质差别在哪：&lt;/p&gt;
+&lt;h3 id=&#34;api&#34;&gt;api&lt;/h3&gt;
+&lt;p&gt;一般用于用户主动发起请求，目标系统返回用户需要的数据、结果。API 用途广泛，涉及查询、修改、执行等&lt;/p&gt;
+&lt;h3 id=&#34;webhook&#34;&gt;webhook&lt;/h3&gt;
+&lt;p&gt;一般用于用户提前设置好触发条件与通知方式，当符合条件，目标系统会主动给用户推送信息、执行动作，无须用户主动查询。webhook 用途单一，仅用于事件发生时的实时推送通知。&lt;/p&gt;
+&lt;p&gt;**ps：**webhook 是 API 的一种，所有 webhook 都是 API，但不是所有 API 都是 webhook。&lt;/p&gt;
+&lt;h2 id=&#34;深入了解webhook&#34;&gt;深入了解webhook&lt;/h2&gt;
+&lt;h3 id=&#34;webhook的特征&#34;&gt;webhook的特征&lt;/h3&gt;
+&lt;p&gt;webhook基于HTTP/HTTPS协议，以POST为主，少数用GET&lt;/p&gt;
+&lt;p&gt;常用 JSON（简洁易解析），也有用 XML、表单（form-data）的场景&lt;/p&gt;
+&lt;p&gt;下面，我们来看看webhook服务的两边各有什么特点。&lt;/p&gt;
+&lt;h3 id=&#34;provider提供者&#34;&gt;provider(提供者)&lt;/h3&gt;
+&lt;p&gt;**谁来当？**通常是 “被触发动作的系统”（比如企业微信消息推送、GitHub、钉钉机器人等）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;做什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供一个 “专属的 webhook 地址”（就是&lt;code&gt;https://qyapi.weixin.qq.com/...?key=xxx&lt;/code&gt; 这类 URL），作为接收请求的 “入口”；&lt;/li&gt;
+&lt;li&gt;定义 “规则”：比如请求必须用什么格式（JSON / 表单）、需要带什么验证信息（比如你的 &lt;code&gt;key&lt;/code&gt;）、支持触发哪些动作（比如企业微信只支持 “推送消息”，GitHub 支持 “代码提交通知”）；&lt;/li&gt;
+&lt;li&gt;收到合法请求后，&lt;strong&gt;执行预设动作&lt;/strong&gt;（比如企业微信把消息推到群里，GitHub 把代码更新信息发给你）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;举例&lt;/strong&gt;：企业微信就是典型的 “webhook 提供者”—— 它给了你带 key 的 URL，规定了必须发 JSON 格式的请求，并且收到后会执行 “推送消息” 的动作。&lt;/p&gt;
+&lt;h3 id=&#34;caller调用者&#34;&gt;caller(调用者)&lt;/h3&gt;
+&lt;p&gt;**谁来当？**通常是 “主动触发动作的一方”（比如本地电脑、服务器脚本、第三方工具等）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;做什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;知道提供者的 webhook 地址和规则（比如 “必须用 JSON 格式，要带 key”）；&lt;/li&gt;
+&lt;li&gt;在需要的时候，&lt;strong&gt;按照规则构造请求并发送&lt;/strong&gt;（比如你用 curl 命令发消息内容）；&lt;/li&gt;
+&lt;li&gt;目的是 “让提供者执行某个动作”（而不是向提供者要数据）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;举例&lt;/strong&gt;：你用 curl 命令发送请求时，你的本地电脑就是 “webhook 调用者”—— 你按照企业微信的规则发了 JSON 请求，目的是让企业微信执行 “推送消息” 的动作。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

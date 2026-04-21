@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>网络 on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 网络 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Oct 2025 17:08:45 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在windows上使用mihomo裸核</title>
+      <link>https://grayfalcon666.github.io/posts/20251003170845-%E5%9C%A8windows%E4%B8%8A%E4%BD%BF%E7%94%A8mihomo%E8%A3%B8%E6%A0%B8/</link>
+      <pubDate>Fri, 03 Oct 2025 17:08:45 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/20251003170845-%E5%9C%A8windows%E4%B8%8A%E4%BD%BF%E7%94%A8mihomo%E8%A3%B8%E6%A0%B8/</guid>
+      <description>&lt;h1 id=&#34;从简开始&#34;&gt;从简开始&lt;/h1&gt;
+&lt;p&gt;相信不少人刚开始折腾内核的时候，都是一脸茫然的，要配置的内容太多，对新手不友好。所以我们从最简单的方法做起，力求先把内核跑起来，然后再慢慢拓展。&lt;/p&gt;
+&lt;p&gt;搞代理的前提是你需要去各大机场订阅节点，或者你自己拥有节点。通常机场会给你提供一个订阅链接🔗，复制下来。&lt;/p&gt;
+&lt;h2 id=&#34;下载内核&#34;&gt;下载内核&lt;/h2&gt;
+&lt;p&gt;先去&lt;a href=&#34;https://github.com/MetaCubeX/mihomo/releases&#34;&gt;mihomo仓库&lt;/a&gt;，根据你的电脑下一个适合的内核版本（去参考官方文档），我下的是这个版本:
+&lt;img alt=&#34;图一.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/img/1759472020924.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;获取配置&#34;&gt;获取配置&lt;/h2&gt;
+&lt;p&gt;在任意位置建一个文件夹，就叫mihomo吧。
+在该位置打开cmd，输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;curl -k -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User-Agent: Clash&amp;#34;&lt;/span&gt; -o config.yaml &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;你的订阅链接&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;添加&lt;code&gt;-k&lt;/code&gt;参数跳过证书验证（仅临时测试使用）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-H &amp;quot;User-Agent: Clash&amp;quot;&lt;/code&gt; 的作用是将请求头中的用户代理标识为 &lt;code&gt;Clash&lt;/code&gt;，部分机场可能会根据此标识返回适配的配置格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果机场支持连接转换成clash格式的话，此时你的mihomo文件夹下会出现一个新的config.yaml文件，打开看一下，这个就是机场给你配好的基础配置。
+&lt;img alt=&#34;图二.png|294&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003151529612.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;运行内核&#34;&gt;运行内核&lt;/h2&gt;
+&lt;p&gt;是不是很简单?这个配置已经足够内核正常运行了，我们接着把它跑起来。&lt;/p&gt;
+&lt;p&gt;打开powershell，输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;.\mihomo-windows-amd64.exe -d .\ &lt;span style=&#34;color:#f92672&#34;&gt;-f&lt;/span&gt; config.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;-d .\ 用于指定程序的&lt;strong&gt;工作目录&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;-f config.yaml 用于指定&lt;strong&gt;配置文件路径&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一次运行需要拉取geoip文件，可能需要给powershell设置代理才能拉取成功（实在不行暂时用客户端吧，开个tun模式）&lt;/p&gt;
+&lt;p&gt;在性能管理器里检查一下，发现内核正在运行，说明内核启动成功：
+&lt;img alt=&#34;图三|275&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153147051.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开启代理&#34;&gt;开启代理&lt;/h2&gt;
+&lt;p&gt;启动了内核之后的最后一步：我们要到系统设置中手动开启系统代理：
+&lt;img alt=&#34;image.png|325&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153418415.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;至此，我们学会了如何使用裸核mihomo开启代理，不管那些有的没的，至少我们已经可以成功运行啦。&lt;/p&gt;
+&lt;p&gt;要想在windows的终端使用代理，就在当前会话输入
+&lt;code&gt;set http_proxy=http://127.0.0.1:7890&lt;/code&gt;，如图所示：
+&lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153926794.png&#34;&gt;
+我们已经与google正常连通。&lt;/p&gt;
+&lt;h1 id=&#34;更进一步&#34;&gt;更进一步&lt;/h1&gt;
+&lt;p&gt;现在我们用的完全是机场给我们的配置，当然会有很多细节处没有匹配我们的个人需求，所以我们需要自己去改进一下这个配置，当然如果你觉得这样已经够用，那么不必接着往下看。&lt;/p&gt;
+&lt;p&gt;自己写规则最主要的目的显然是为了能够让一些自己的服务器或者一些特殊地址能够直连\走代理，其实整个代理配置说白了就是 &lt;em&gt;&lt;strong&gt;规定了谁要走直连，谁要走代理&lt;/strong&gt;&lt;/em&gt;，方便我们使用代理时可以实现全自动化策略调控。&lt;/p&gt;
+&lt;p&gt;要想自己写配置，我们首先要搞懂mihomo的配置分为哪些部分，每一部分是干什么的。让我带大家初步了解一下mihomo的配置中的几个主要模块：&lt;/p&gt;
+&lt;h2 id=&#34;主要模块&#34;&gt;主要模块&lt;/h2&gt;
+&lt;h3 id=&#34;proxy-providers&#34;&gt;proxy-providers&lt;/h3&gt;
+&lt;h4 id=&#34;作用&#34;&gt;作用&lt;/h4&gt;
+&lt;p&gt;定义 &lt;strong&gt;从哪里获取代理节点&lt;/strong&gt;，支持在线订阅、本地文件等方式，是代理节点的 “源头”。&lt;/p&gt;
+&lt;h4 id=&#34;常用参数&#34;&gt;常用参数&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;url&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;代理订阅链接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅内容的本地保存路径&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅类型为 &lt;code&gt;http&lt;/code&gt;（常见类型还有 &lt;code&gt;file&lt;/code&gt; 本地文件、&lt;code&gt;clash&lt;/code&gt; 标准格式等）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;interval&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅更新间隔，通常是设定&lt;code&gt;86400&lt;/code&gt; 秒 = 1 天，即每天自动更新一次代理节点。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;全局配置&#34;&gt;全局配置&lt;/h3&gt;
+&lt;h4 id=&#34;作用-1&#34;&gt;作用&lt;/h4&gt;
+&lt;p&gt;定义 mihomo 的基础运行参数、网络入口（端口）、全局模式等，是软件启动的 &lt;strong&gt;基础设置&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

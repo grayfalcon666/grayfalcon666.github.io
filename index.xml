@@ -1,24 +1,462 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ExampleSite</title>
-    <link>https://examplesite.com/</link>
-    <description>Recent content on ExampleSite</description>
+    <title>Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/</link>
+    <description>Recent content on Jamaisvu&#39;s blog</description>
     <image>
-      <title>ExampleSite</title>
-      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate>
-    <atom:link href="https://examplesite.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My 1st post</title>
-      <link>https://examplesite.com/posts/first-post/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      <guid>https://examplesite.com/posts/first-post/</guid>
-      <description>Desc Text.</description>
+      <title>Hugo API：快速发布你的hugo文章!</title>
+      <link>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;这是博主开源到github的另一个项目，此处贴的是使用文档。如果是跟我一样使用hugo建站并且苦于如何发布的小伙伴们，我强力推荐这个api，你会用上的！！&lt;/p&gt;
+&lt;p&gt;✿✿✿来支持一波吧✿✿✿&lt;/p&gt;
+&lt;p&gt;👇👇👇&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/grayfalcon666/hugo_api&#34;&gt;grayfalcon666/hugo_api: Quickly publish posts for your Hugo blog!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;preview&lt;/strong&gt;：
+&lt;img alt=&#34;hugo-api-preview.gif|750&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//hugo-api-preview.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;一个用 Go 编写的轻量级 API 服务，支持通过 &lt;strong&gt;表单提交&lt;/strong&gt;（直接复制 Markdown）快速创建 Hugo 静态博客文章，自动生成 Front Matter 并触发 Hugo 构建，无需手动操作文件或执行命令。&lt;/p&gt;
+&lt;h2 id=&#34;-核心功能&#34;&gt;🌟 核心功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;发送文章与动态&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;/api/hugo/create-post&lt;/li&gt;
+&lt;li&gt;/api/hugo/create-moment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外置config文件&lt;/strong&gt;: 可自定义文章发布路径、密钥、api监听端口号&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动处理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;生成 Hugo 标准 Front Matter（标题、时间、标签、分类等）&lt;/li&gt;
+&lt;li&gt;自动触发 Hugo 构建，发布后立即生效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-快速开始&#34;&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3 id=&#34;1-克隆仓库到本地&#34;&gt;1. 克隆仓库到本地&lt;/h3&gt;
+&lt;h3 id=&#34;2-配置configjson&#34;&gt;2. 配置 &lt;code&gt;config.json&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在项目根目录创建 &lt;code&gt;config.json&lt;/code&gt; 文件，按实际环境填写配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;api_key&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;your-strong-secret-key&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_content_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/posts&amp;#34;&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_moment_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/moments&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_project_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_exec_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin/hugo&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;listen_addr&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:8080&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8&lt;/span&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-编译与启动&#34;&gt;3. 编译与启动&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 编译（生成可执行文件）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;go build -o hugo-api hugo-api.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 启动服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;./hugo-api
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;后台运行&#34;&gt;后台运行&lt;/h4&gt;
+&lt;p&gt;linux 写一个系统服务即可，以下为示例:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为immich配置机器学习与硬件加速</title>
+      <link>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 02:27:29 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;h2 id=&#34;环境介绍&#34;&gt;环境介绍&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 24.04.2 LTS&lt;/li&gt;
+&lt;li&gt;GPU: NVIDIA GeForce GTX 1050 Ti&lt;/li&gt;
+&lt;li&gt;immich: docker compose部署&lt;/li&gt;
+&lt;li&gt;date: 2025-10-05&lt;/li&gt;
+&lt;li&gt;network: need proxy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模型下载&#34;&gt;模型下载&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;下载地址&lt;/strong&gt;：
+&lt;a href=&#34;https://huggingface.co/immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k/tree/main&#34;&gt;immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k at main&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载须知&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;给下载目标路径的目录预留充足磁盘空间，&amp;gt;20GB。&lt;/li&gt;
+&lt;li&gt;需安装git-lfs（管理git大文件的拓展）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt;sudo apt-get install git-lfs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;df -h ~/path  &lt;span style=&#34;color:#75715e&#34;&gt;# 查看仓库所在分区的空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#若目录下磁盘空间不足，迁移到别的目录，以下是迁移指令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;rsync -av 原路径 目标路径
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-a`：归档模式，保留文件权限、时间戳等所有属性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-v`：显示复制进度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;rm -rf ~/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#断点续连&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;git restore --source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;HEAD :/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把下载来的模型放在clip文件夹以下的位置：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>在windows上使用mihomo裸核</title>
+      <link>https://grayfalcon666.github.io/posts/20251003170845-%E5%9C%A8windows%E4%B8%8A%E4%BD%BF%E7%94%A8mihomo%E8%A3%B8%E6%A0%B8/</link>
+      <pubDate>Fri, 03 Oct 2025 17:08:45 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/20251003170845-%E5%9C%A8windows%E4%B8%8A%E4%BD%BF%E7%94%A8mihomo%E8%A3%B8%E6%A0%B8/</guid>
+      <description>&lt;h1 id=&#34;从简开始&#34;&gt;从简开始&lt;/h1&gt;
+&lt;p&gt;相信不少人刚开始折腾内核的时候，都是一脸茫然的，要配置的内容太多，对新手不友好。所以我们从最简单的方法做起，力求先把内核跑起来，然后再慢慢拓展。&lt;/p&gt;
+&lt;p&gt;搞代理的前提是你需要去各大机场订阅节点，或者你自己拥有节点。通常机场会给你提供一个订阅链接🔗，复制下来。&lt;/p&gt;
+&lt;h2 id=&#34;下载内核&#34;&gt;下载内核&lt;/h2&gt;
+&lt;p&gt;先去&lt;a href=&#34;https://github.com/MetaCubeX/mihomo/releases&#34;&gt;mihomo仓库&lt;/a&gt;，根据你的电脑下一个适合的内核版本（去参考官方文档），我下的是这个版本:
+&lt;img alt=&#34;图一.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/img/1759472020924.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;获取配置&#34;&gt;获取配置&lt;/h2&gt;
+&lt;p&gt;在任意位置建一个文件夹，就叫mihomo吧。
+在该位置打开cmd，输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;curl -k -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;User-Agent: Clash&amp;#34;&lt;/span&gt; -o config.yaml &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;你的订阅链接&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;添加&lt;code&gt;-k&lt;/code&gt;参数跳过证书验证（仅临时测试使用）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-H &amp;quot;User-Agent: Clash&amp;quot;&lt;/code&gt; 的作用是将请求头中的用户代理标识为 &lt;code&gt;Clash&lt;/code&gt;，部分机场可能会根据此标识返回适配的配置格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果机场支持连接转换成clash格式的话，此时你的mihomo文件夹下会出现一个新的config.yaml文件，打开看一下，这个就是机场给你配好的基础配置。
+&lt;img alt=&#34;图二.png|294&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003151529612.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;运行内核&#34;&gt;运行内核&lt;/h2&gt;
+&lt;p&gt;是不是很简单?这个配置已经足够内核正常运行了，我们接着把它跑起来。&lt;/p&gt;
+&lt;p&gt;打开powershell，输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;.\mihomo-windows-amd64.exe -d .\ &lt;span style=&#34;color:#f92672&#34;&gt;-f&lt;/span&gt; config.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;-d .\ 用于指定程序的&lt;strong&gt;工作目录&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;-f config.yaml 用于指定&lt;strong&gt;配置文件路径&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一次运行需要拉取geoip文件，可能需要给powershell设置代理才能拉取成功（实在不行暂时用客户端吧，开个tun模式）&lt;/p&gt;
+&lt;p&gt;在性能管理器里检查一下，发现内核正在运行，说明内核启动成功：
+&lt;img alt=&#34;图三|275&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153147051.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开启代理&#34;&gt;开启代理&lt;/h2&gt;
+&lt;p&gt;启动了内核之后的最后一步：我们要到系统设置中手动开启系统代理：
+&lt;img alt=&#34;image.png|325&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153418415.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;至此，我们学会了如何使用裸核mihomo开启代理，不管那些有的没的，至少我们已经可以成功运行啦。&lt;/p&gt;
+&lt;p&gt;要想在windows的终端使用代理，就在当前会话输入
+&lt;code&gt;set http_proxy=http://127.0.0.1:7890&lt;/code&gt;，如图所示：
+&lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20251003153926794.png&#34;&gt;
+我们已经与google正常连通。&lt;/p&gt;
+&lt;h1 id=&#34;更进一步&#34;&gt;更进一步&lt;/h1&gt;
+&lt;p&gt;现在我们用的完全是机场给我们的配置，当然会有很多细节处没有匹配我们的个人需求，所以我们需要自己去改进一下这个配置，当然如果你觉得这样已经够用，那么不必接着往下看。&lt;/p&gt;
+&lt;p&gt;自己写规则最主要的目的显然是为了能够让一些自己的服务器或者一些特殊地址能够直连\走代理，其实整个代理配置说白了就是 &lt;em&gt;&lt;strong&gt;规定了谁要走直连，谁要走代理&lt;/strong&gt;&lt;/em&gt;，方便我们使用代理时可以实现全自动化策略调控。&lt;/p&gt;
+&lt;p&gt;要想自己写配置，我们首先要搞懂mihomo的配置分为哪些部分，每一部分是干什么的。让我带大家初步了解一下mihomo的配置中的几个主要模块：&lt;/p&gt;
+&lt;h2 id=&#34;主要模块&#34;&gt;主要模块&lt;/h2&gt;
+&lt;h3 id=&#34;proxy-providers&#34;&gt;proxy-providers&lt;/h3&gt;
+&lt;h4 id=&#34;作用&#34;&gt;作用&lt;/h4&gt;
+&lt;p&gt;定义 &lt;strong&gt;从哪里获取代理节点&lt;/strong&gt;，支持在线订阅、本地文件等方式，是代理节点的 “源头”。&lt;/p&gt;
+&lt;h4 id=&#34;常用参数&#34;&gt;常用参数&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;url&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;代理订阅链接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅内容的本地保存路径&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅类型为 &lt;code&gt;http&lt;/code&gt;（常见类型还有 &lt;code&gt;file&lt;/code&gt; 本地文件、&lt;code&gt;clash&lt;/code&gt; 标准格式等）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;interval&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;订阅更新间隔，通常是设定&lt;code&gt;86400&lt;/code&gt; 秒 = 1 天，即每天自动更新一次代理节点。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;全局配置&#34;&gt;全局配置&lt;/h3&gt;
+&lt;h4 id=&#34;作用-1&#34;&gt;作用&lt;/h4&gt;
+&lt;p&gt;定义 mihomo 的基础运行参数、网络入口（端口）、全局模式等，是软件启动的 &lt;strong&gt;基础设置&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>一篇讲清api与webhook</title>
+      <link>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</link>
+      <pubDate>Sun, 28 Sep 2025 23:36:15 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</guid>
+      <description>&lt;h2 id=&#34;基本区别&#34;&gt;基本区别&lt;/h2&gt;
+&lt;p&gt;许多小白第一次接触webhook的时候常常会与api混淆，那么我们先来看看两者的本质差别在哪：&lt;/p&gt;
+&lt;h3 id=&#34;api&#34;&gt;api&lt;/h3&gt;
+&lt;p&gt;一般用于用户主动发起请求，目标系统返回用户需要的数据、结果。API 用途广泛，涉及查询、修改、执行等&lt;/p&gt;
+&lt;h3 id=&#34;webhook&#34;&gt;webhook&lt;/h3&gt;
+&lt;p&gt;一般用于用户提前设置好触发条件与通知方式，当符合条件，目标系统会主动给用户推送信息、执行动作，无须用户主动查询。webhook 用途单一，仅用于事件发生时的实时推送通知。&lt;/p&gt;
+&lt;p&gt;**ps：**webhook 是 API 的一种，所有 webhook 都是 API，但不是所有 API 都是 webhook。&lt;/p&gt;
+&lt;h2 id=&#34;深入了解webhook&#34;&gt;深入了解webhook&lt;/h2&gt;
+&lt;h3 id=&#34;webhook的特征&#34;&gt;webhook的特征&lt;/h3&gt;
+&lt;p&gt;webhook基于HTTP/HTTPS协议，以POST为主，少数用GET&lt;/p&gt;
+&lt;p&gt;常用 JSON（简洁易解析），也有用 XML、表单（form-data）的场景&lt;/p&gt;
+&lt;p&gt;下面，我们来看看webhook服务的两边各有什么特点。&lt;/p&gt;
+&lt;h3 id=&#34;provider提供者&#34;&gt;provider(提供者)&lt;/h3&gt;
+&lt;p&gt;**谁来当？**通常是 “被触发动作的系统”（比如企业微信消息推送、GitHub、钉钉机器人等）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;做什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供一个 “专属的 webhook 地址”（就是&lt;code&gt;https://qyapi.weixin.qq.com/...?key=xxx&lt;/code&gt; 这类 URL），作为接收请求的 “入口”；&lt;/li&gt;
+&lt;li&gt;定义 “规则”：比如请求必须用什么格式（JSON / 表单）、需要带什么验证信息（比如你的 &lt;code&gt;key&lt;/code&gt;）、支持触发哪些动作（比如企业微信只支持 “推送消息”，GitHub 支持 “代码提交通知”）；&lt;/li&gt;
+&lt;li&gt;收到合法请求后，&lt;strong&gt;执行预设动作&lt;/strong&gt;（比如企业微信把消息推到群里，GitHub 把代码更新信息发给你）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;举例&lt;/strong&gt;：企业微信就是典型的 “webhook 提供者”—— 它给了你带 key 的 URL，规定了必须发 JSON 格式的请求，并且收到后会执行 “推送消息” 的动作。&lt;/p&gt;
+&lt;h3 id=&#34;caller调用者&#34;&gt;caller(调用者)&lt;/h3&gt;
+&lt;p&gt;**谁来当？**通常是 “主动触发动作的一方”（比如本地电脑、服务器脚本、第三方工具等）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;做什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;知道提供者的 webhook 地址和规则（比如 “必须用 JSON 格式，要带 key”）；&lt;/li&gt;
+&lt;li&gt;在需要的时候，&lt;strong&gt;按照规则构造请求并发送&lt;/strong&gt;（比如你用 curl 命令发消息内容）；&lt;/li&gt;
+&lt;li&gt;目的是 “让提供者执行某个动作”（而不是向提供者要数据）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;举例&lt;/strong&gt;：你用 curl 命令发送请求时，你的本地电脑就是 “webhook 调用者”—— 你按照企业微信的规则发了 JSON 请求，目的是让企业微信执行 “推送消息” 的动作。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>excalicloudstore 使用说明</title>
+      <link>https://grayfalcon666.github.io/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Sat, 27 Sep 2025 22:55:35 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</guid>
+      <description>&lt;p&gt;由博主开发的docker镜像，现已发布在dokcer hub上 grayfalcon/excalicloudstore
+通过 &lt;strong&gt;Docker 单机部署&lt;/strong&gt; 和 &lt;strong&gt;Docker Compose 部署&lt;/strong&gt; 两种方式，快速使用 &lt;code&gt;grayfalcon/excalicloudstore&lt;/code&gt; 镜像（基于 Excalidraw 开发，支持 S3 兼容存储的云端绘图工具）。&lt;/p&gt;
+&lt;h2 id=&#34;一前提条件&#34;&gt;一、前提条件&lt;/h2&gt;
+&lt;p&gt;在开始部署前，请确保您的环境已满足以下要求：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 &lt;strong&gt;Docker Engine&lt;/strong&gt;（参考：&lt;a href=&#34;https://docs.docker.com/get-docker/&#34;&gt;Docker 官方安装文档&lt;/a&gt;）
+&lt;ul&gt;
+&lt;li&gt;Linux 系统：需确保 Docker 服务已启动（&lt;code&gt;systemctl start docker&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;Windows/macOS 系统：安装 Docker Desktop 并启动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;（可选）安装 &lt;strong&gt;Docker Compose&lt;/strong&gt;（若使用 Compose 部署，参考：&lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;Docker Compose 安装文档&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;准备好 &lt;strong&gt;S3 兼容存储配置&lt;/strong&gt;（如 AWS S3、七牛云 Kodo、阿里云 OSS 等），需包含：
+&lt;ul&gt;
+&lt;li&gt;访问密钥（Access Key ID）&lt;/li&gt;
+&lt;li&gt;秘密密钥（Secret Access Key）&lt;/li&gt;
+&lt;li&gt;存储区域（Region）&lt;/li&gt;
+&lt;li&gt;终端节点（Endpoint）&lt;/li&gt;
+&lt;li&gt;存储桶名称（Bucket Name）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;二方式一docker-单机部署&#34;&gt;二、方式一：Docker 单机部署&lt;/h2&gt;
+&lt;p&gt;适合快速启动单个容器，步骤简单，适合测试或小型场景。&lt;/p&gt;
+&lt;h3 id=&#34;1-核心部署命令&#34;&gt;1. 核心部署命令&lt;/h3&gt;
+&lt;p&gt;将以下命令中的 &lt;strong&gt;占位符（如 &lt;code&gt;your_access_key_here&lt;/code&gt;）&lt;/strong&gt; 替换为您的实际配置，直接在终端执行：&lt;/p&gt;
+&lt;p&gt;bash&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Linux/macOS 系统（续行符为 \）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;docker run -d &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;  -p 8080:80 &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 宿主机端口:容器内端口（容器内默认80，可修改宿主机端口如 80:80）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;  --name excalicloudstore &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 容器名称（可自定义）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;  --restart unless-stopped &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 容器意外退出时自动重启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;  -e PORT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3001&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 后端服务端口（容器内固定，无需修改）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;  -e NODE_ENV&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;production &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 环境类型（production 生产环境，development 开发环境）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;  -e AWS_ACCESS_KEY_ID&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your_access_key_here &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 替换为 S3 访问密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;  -e AWS_SECRET_ACCESS_KEY&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your_secret_key_here &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 替换为 S3 秘密密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;  -e S3_REGION&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your_s3_region_here &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 替换为 S3 区域（如 cn-east-1、us-east-1）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;  -e S3_ENDPOINT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your_s3_endpoint_here &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 替换为 S3 终端节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;  -e S3_BUCKET&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your_s3_bucket_name_here &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 替换为 S3 存储桶名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;  -e STORAGE_PATH_PREFIX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Excalidraw/web_canvas/ &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# S3 存储路径前缀（可自定义，如无需求保持默认）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14&lt;/span&gt;&lt;span&gt;  -e S3_FORCE_PATH_STYLE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 强制使用路径风格访问 S3（兼容多数存储服务）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15&lt;/span&gt;&lt;span&gt;  -e S3_TLS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;false &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 是否启用 TLS（true 为 HTTPS，false 为 HTTP，根据 S3 配置选择）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16&lt;/span&gt;&lt;span&gt;  grayfalcon/excalicloudstore:latest  &lt;span style=&#34;color:#75715e&#34;&gt;# 镜像名称（:latest 为最新版本，可指定具体版本如 :v1）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;powershell&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>💻电脑时间管理大师：Manic Time 最易懂的速成教程</title>
+      <link>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image.png|450&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20250906144436192.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;p&gt;博主有段时间特别痴迷记录生活习惯，我曾在 4 月份陷入 手动复盘的困境—— 想记录电脑使用习惯却难以坚持：手动记太麻烦、整理数据费时间，一想到复盘流程就头大。直到遇到 &lt;strong&gt;Manic Time&lt;/strong&gt;，这款电脑时间管理软件彻底解决了我的痛点：它能静默在后台运行，从开机到关机全自动记录电脑操作（温馨提示：隐私相关记录还是别记录了哈🤣）。&lt;/p&gt;
+&lt;p&gt;虽初用时觉得功能繁琐、对新手不友好，但熟悉后才发现它的核心优势 ——&lt;strong&gt;无痛自动记录&lt;/strong&gt;：只需花 10 分钟学基础操作，后续无需手动干预，想看时间习惯时随时调用数据。本文专为和我一样的 “记录新手” 打造，用最直白的步骤，教你掌握 Manic Time 的自动记录核心功能。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;h3 id=&#34;1-核心前置3-分钟摸清-manic-time-关键模块&#34;&gt;1. 核心前置：3 分钟摸清 Manic Time 关键模块&lt;/h3&gt;
+&lt;p&gt;Manic Time 的自动记录逻辑围绕 “时间轴 + 统计” 展开，新手无需学所有功能，先掌握 2 个核心模块即可。&lt;/p&gt;
+&lt;h4 id=&#34;11-时间轴自动记录的-数据底座&#34;&gt;1.1 时间轴：自动记录的 “数据底座”&lt;/h4&gt;
+&lt;p&gt;时间轴是 Manic Time 记录数据的核心载体，3 条关键时间轴分清就好了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标签时间轴&lt;/strong&gt;：按自定义标签记录，但&lt;strong&gt;无法自动标记&lt;/strong&gt;，需手动操作（后续会教如何 “变自动”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;程序时间轴&lt;/strong&gt;：按使用的程序（如 edge.exe、微信.exe）自动记录，无需手动干预，是 “全自动数据来源”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动标记时间轴&lt;/strong&gt;：支持按规则自动标记标签，可理解为 “能自动工作的标签轴”（核心功能，后续重点用）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图 1：Manic Time 时间轴面板（3 条核心时间轴，新手重点关注）&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image|116&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20250906125810031.png&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;12-统计信息让时间分配-可视化&#34;&gt;1.2 统计信息：让时间分配 “可视化”&lt;/h4&gt;
+&lt;p&gt;统计信息是 “看结果” 的关键，能将时间轴数据转化为直观图表：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击顶部导航栏「统计信息」，面板会自动汇总所有时间轴数据。&lt;/li&gt;
+&lt;li&gt;调整「分组依据」：可按 “天” 或 “周” 汇总，方便查看短期 / 长期时间分配。&lt;/li&gt;
+&lt;li&gt;切换图表类型：建议用 “折线图”，能清晰看到某类活动（如娱乐、工作）的时间变化趋势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们做所有自动设置的最终目的，就是让「统计信息」能直接展示 “自定义标签” 的时间数据，比如 “娱乐视频耗时”“工作软件使用时长”，方便快速复盘。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Obsidian 多端同步：用七牛云 &#43; Remotely Save 实现手机与电脑无缝协作</title>
+      <link>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906031852383.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言灵感随时记多端不脱节&#34;&gt;引言：灵感随时记，多端不脱节&lt;/h2&gt;
+&lt;p&gt;Obsidian 的白板功能对&lt;strong&gt;梳理编程数据流&lt;/strong&gt;、&lt;strong&gt;搭建知识体系&lt;/strong&gt;十分友好，但很多时候灵感来袭时我们并不在电脑前，只能用手机临时记录，后续还要手动迁移到电脑端的 Obsidian 中，既繁琐又容易遗漏细节。&lt;/p&gt;
+&lt;p&gt;如果 Obsidian 能实现多端同步，就能让创作更顺畅：手机随手记下的想法，下次打开电脑时，只需点击同步按钮，就能继续编辑；再结合之前分享的&lt;a href=&#34;https://blog.jamaisvu.tech/102/%E7%99%BD%E5%AB%96github%EF%BC%8C%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4%EF%BC%8C%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1/&#34;&gt;PicGo 图床搭建教程&lt;/a&gt;，还能在手机与电脑间快速传输文字和图片。&lt;/p&gt;
+&lt;h2 id=&#34;准备环境所需工具清单&#34;&gt;准备环境：所需工具清单&lt;/h2&gt;
+&lt;p&gt;要实现 Obsidian 多端同步，需准备以下工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;云存储服务：&lt;strong&gt;七牛云对象存储&lt;/strong&gt;（作为 Obsidian 的远程存储载体）；&lt;/li&gt;
+&lt;li&gt;笔记应用：&lt;strong&gt;Obsidian&lt;/strong&gt;（需同时安装 PC 端和手机端，建议使用最新版本）；&lt;/li&gt;
+&lt;li&gt;同步插件：&lt;strong&gt;Remotely Save&lt;/strong&gt;（Obsidian 第三方插件，负责多端数据同步）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;第一步七牛云对象存储配置&#34;&gt;第一步：七牛云对象存储配置&lt;/h2&gt;
+&lt;p&gt;七牛云的「对象存储（Kodo）」是同步的核心 “仓库”，请按以下步骤配置：&lt;/p&gt;
+&lt;h3 id=&#34;1-注册并完成实名认证&#34;&gt;1. 注册并完成实名认证&lt;/h3&gt;
+&lt;p&gt;访问&lt;a href=&#34;https://www.qiniu.com/&#34;&gt;七牛云官网&lt;/a&gt;，完成账号注册后，务必进行&lt;strong&gt;实名认证&lt;/strong&gt;（个人或企业认证均可，按页面提示提交资料即可）。&lt;br&gt;
+⚠️ 实名认证是使用对象存储的必要前提，必须完成！&lt;/p&gt;
+&lt;h3 id=&#34;2-创建存储空间&#34;&gt;2. 创建存储空间&lt;/h3&gt;
+&lt;p&gt;实名认证通过后，进入七牛云&lt;strong&gt;控制台&lt;/strong&gt;，操作如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;点击左侧导航栏「对象存储 Kodo」；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击「创建空间」，填写相关信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空间名称：自定义（需保证全局唯一，例如&lt;code&gt;obsidian-sync-2025&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;存储区域：选择&lt;strong&gt;距离自己最近的区域&lt;/strong&gt;（后续同步速度更快，区域与 ID 的对应关系见下文表格）；&lt;/li&gt;
+&lt;li&gt;其他选项（如存储类型、访问控制等）：新手保持默认设置即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;3-获取访问密钥aksk&#34;&gt;3. 获取访问密钥（AK、SK）&lt;/h3&gt;
+&lt;p&gt;同步 Obsidian 需要 “访问密钥” 来验证身份，步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击控制台右上角&lt;strong&gt;头像&lt;/strong&gt;，选择「密钥管理」；&lt;/li&gt;
+&lt;li&gt;点击「创建密钥」（若已有密钥，可直接使用）；&lt;/li&gt;
+&lt;li&gt;保存生成的**AccessKey（AK）**和**SecretKey（SK）**—— 这是后续配置的关键凭证，务必妥善保存！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906022658285.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906024018732.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步obsidian-与-remotely-save-同步配置&#34;&gt;第二步：Obsidian 与 Remotely Save 同步配置&lt;/h2&gt;
+&lt;p&gt;完成七牛云配置后，需在 Obsidian 中安装并配置「Remotely Save」插件，实现与云存储的连接。&lt;/p&gt;
+&lt;h3 id=&#34;1-安装-remotely-save-插件&#34;&gt;1. 安装 Remotely Save 插件&lt;/h3&gt;
+&lt;p&gt;打开 Obsidian PC 端，依次操作：&lt;br&gt;
+&lt;code&gt;设置&lt;/code&gt; → &lt;code&gt;第三方插件&lt;/code&gt; → 开启「社区插件市场」→ 搜索「Remotely Save」→ 点击「安装」并「启用」。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>图床服务保姆级教程 2025白嫖github 彻底释放本地空间!</title>
+      <link>https://grayfalcon666.github.io/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;1756602474703.gif&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756602474703.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;还在手忙脚乱地在服务器和客户端之间传图片？还在为博客图片引用失效而头疼？其实这些都多余了！&lt;/p&gt;
+&lt;p&gt;拥有图床服务，就等于拥有了一个多端同步的媒体库——不仅能存图片，还能存GIF、PDF、文本文件等。写博客时无需纠结复杂格式，只需掌握简单的Markdown语法，就能快速搭建便捷又优雅的写作环境。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;h3 id=&#34;一环境准备&#34;&gt;一、环境准备&lt;/h3&gt;
+&lt;p&gt;本次搭建需用到以下工具，点击名称可直接跳转至对应下载/官网页面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PicGo&lt;/strong&gt;：图床上传工具，&lt;a href=&#34;https://github.com/Molunerfinn/PicGo&#34;&gt;GitHub官方仓库（可下载最新版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub仓库&lt;/strong&gt;：用于存储图片的免费云端空间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typora&lt;/strong&gt;：Markdown编辑器，&lt;a href=&#34;https://typora.io/&#34;&gt;官方下载链接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WordPress&lt;/strong&gt;：博客发布平台（可选，也可适配其他平台）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二最终实现效果&#34;&gt;二、最终实现效果&lt;/h3&gt;
+&lt;p&gt;截图后按下 &lt;code&gt;Ctrl+C&lt;/code&gt; 复制，再到Typora中 &lt;code&gt;Ctrl+V&lt;/code&gt; 粘贴，即可自动生成「Markdown语法+图片URL」的内容；发布时全选Typora内容，复制到博客发布页，一键完成发布。&lt;/p&gt;
+&lt;h3 id=&#34;三详细搭建步骤&#34;&gt;三、详细搭建步骤&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建github仓库存储图片的云端硬盘&#34;&gt;1. 创建GitHub仓库（存储图片的“云端硬盘”）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;登录GitHub，新建仓库，配置参考下图： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604369017.jpg&#34;&gt;&lt;img alt=&#34;1756604369017.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604369017.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键注意&lt;/strong&gt;：仓库必须设置为「Public」，否则图片外链无法公开访问。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;2-创建github-token授权picgo操作仓库&#34;&gt;2. 创建GitHub Token（授权PicGo操作仓库）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;进入GitHub的「Settings → Developer settings → Personal access tokens」，选择**「Generate new token (classic)」**（重点！选“classic”，新版token可能导致PicGo无权访问）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604774712.jpg&#34;&gt;&lt;img alt=&#34;1756604774712.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604774712.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;权限配置：勾选「repo」分类下的所有权限（确保PicGo能上传/管理图片）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604774720.jpg&#34;&gt;&lt;img alt=&#34;1756604774720.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604774720.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;生成Token后&lt;strong&gt;立即保存&lt;/strong&gt;（刷新页面后无法找回）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;3-配置picgo将图片上传到github&#34;&gt;3. 配置PicGo（将图片上传到GitHub）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://github.com/Molunerfinn/PicGo&#34;&gt;PicGo&lt;/a&gt;，在左侧选择「图床设置 → GitHub图床」。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关键参数填写（重点是「自定义域名」，根据需求二选一）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;海外服务器/需科学上网&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/你的用户名/你的仓库名/refs/heads/你的分支名/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;国内服务器（加速访问）&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;https://cdn.jsdelivr.net/gh/你的账户名/你的仓库名@你的分支名/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他参数：依次填写「GitHub用户名」「仓库名」「分支名（默认main）」「刚才保存的Token」，最后点击「确定」并设为默认图床。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;4-关联typora实现截图即上传&#34;&gt;4. 关联Typora（实现“截图即上传”）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://typora.io/&#34;&gt;Typora&lt;/a&gt;，进入「文件 → 偏好设置 → 图像」。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置如下（参考图片）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756606125506.png&#34;&gt;&lt;img alt=&#34;1756606125506.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756606125506.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;勾选「插入图片时自动上传」&lt;/li&gt;
+&lt;li&gt;上传服务选择「PicGo」&lt;/li&gt;
+&lt;li&gt;「PicGo路径」选择本地的「PicGo.exe」文件（如&lt;code&gt;D:\PicGo\PicGo.exe&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击「验证图片上传选项」，提示“成功”即配置完成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;四测试验证&#34;&gt;四、测试验证&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;用Windows截图快捷键 &lt;code&gt;Win + Shift + S&lt;/code&gt; 截取任意内容。&lt;/li&gt;
+&lt;li&gt;切换到Typora，按下 &lt;code&gt;Ctrl+V&lt;/code&gt; 粘贴。&lt;/li&gt;
+&lt;li&gt;若PicGo左下角弹出「上传成功」通知，且Typora中显示图片（而非本地路径），则图床搭建成功！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;后记为什么选github而非国内oss&#34;&gt;后记：为什么选GitHub而非国内OSS？&lt;/h2&gt;
+&lt;p&gt;我的WordPress强制开启了HTTPS，而七牛云等国内免费OSS提供的域名多为HTTP，需额外申请SSL证书（且需国内备案域名），流程繁琐。&lt;br&gt;
+GitHub自带HTTPS，无需备案且完全免费，虽国内访问速度略慢，但可通过「jsdelivr CDN」加速；若追求更稳定的国内访问，也可替换为Gitee仓库（操作流程一致）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用Nginx Proxy Manager为WordPress站点设置反向代理</title>
+      <link>https://grayfalcon666.github.io/posts/%E7%94%A8nginx-proxy-manager%E4%B8%BAwordpress%E7%AB%99%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E7%94%A8nginx-proxy-manager%E4%B8%BAwordpress%E7%AB%99%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image-20250906041322774&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//image-20250906041322774.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言：&lt;/h2&gt;
+&lt;p&gt;为什么需要给 WordPress 套反向代理？&lt;/p&gt;
+&lt;p&gt;有朋友可能会疑惑：WordPress 本身能设置站点 URL 和端口，为什么还要多此一举用反向代理？&lt;/p&gt;
+&lt;p&gt;核心原因很简单——避免 80/443 端口被博客独占。公网访问中，80（HTTP）和 443（HTTPS）是默认端口，若直接给 WordPress 用，后续想部署其他项目（如个人网盘、后台管理系统）就无法通过二级域名（如 drive.example.com ）复用这两个端口。而用 Nginx Proxy Manager（简称 NPM）做反向代理，能统一管理所有入站流量，通过不同二级域名分配端口，更灵活高效。&lt;/p&gt;
+&lt;p&gt;📌 说明：本文是博主第一篇技术博客，内容偏向新手友好，若有技术疏漏，欢迎各位大佬留言指正！&lt;/p&gt;
+&lt;h2 id=&#34;一前置准备环境与基础要求&#34;&gt;一、前置准备：环境与基础要求&lt;/h2&gt;
+&lt;p&gt;在开始前，先确认你的环境是否符合以下条件（仅供参考，非强制但推荐）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;部署环境：Nginx Proxy Manager（NPM）与 WordPress（WP）部署在同一台服务器&lt;/li&gt;
+&lt;li&gt;容器工具：两者均通过 Docker Compose 部署（需提前安装 Docker 和 Docker Compose，参考 Docker 官方安装指南）&lt;/li&gt;
+&lt;li&gt;网络环境：服务器已具备公网 IP，且开放必要端口（80、443、81），支持公网访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二步骤-1docker-配置端口映射--容器网络&#34;&gt;二、步骤 1：Docker 配置（端口映射 + 容器网络）&lt;/h2&gt;
+&lt;p&gt;这一步的核心是：让 NPM 和 WordPress 容器能互相通信，同时避免端口冲突。&lt;/p&gt;
+&lt;h3 id=&#34;11-配置容器端口映射关键&#34;&gt;1.1 配置容器端口映射（关键！）&lt;/h3&gt;
+&lt;p&gt;WordPress 容器有个特殊限制：容器内部必须使用 80 端口（否则无法通过 主机IP:端口 访问安装界面），因此需在 docker-compose.yml 中指定「宿主机端口:容器 80 端口」，宿主机端口可自定义（如 8000）。&lt;/p&gt;
+&lt;p&gt;示例：WordPress 端口映射配置&lt;/p&gt;
+&lt;h5 id=&#34;wordpress-的-docker-composeyml-片段&#34;&gt;WordPress 的 docker-compose.yml 片段&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;wordpress&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;wordpress:latest &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 推荐使用官方最新镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8000:80&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# 宿主机 8000 端口 → 容器 80 端口（宿主机端口可改，容器端必须是 80）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 其他配置（如数据库链接、 volumes 等）省略，需自行补充&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nginx Proxy Manager 端口映射配置&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>技术 on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo API：快速发布你的hugo文章!</title>
+      <link>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;这是博主开源到github的另一个项目，此处贴的是使用文档。如果是跟我一样使用hugo建站并且苦于如何发布的小伙伴们，我强力推荐这个api，你会用上的！！&lt;/p&gt;
+&lt;p&gt;✿✿✿来支持一波吧✿✿✿&lt;/p&gt;
+&lt;p&gt;👇👇👇&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/grayfalcon666/hugo_api&#34;&gt;grayfalcon666/hugo_api: Quickly publish posts for your Hugo blog!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;preview&lt;/strong&gt;：
+&lt;img alt=&#34;hugo-api-preview.gif|750&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//hugo-api-preview.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;一个用 Go 编写的轻量级 API 服务，支持通过 &lt;strong&gt;表单提交&lt;/strong&gt;（直接复制 Markdown）快速创建 Hugo 静态博客文章，自动生成 Front Matter 并触发 Hugo 构建，无需手动操作文件或执行命令。&lt;/p&gt;
+&lt;h2 id=&#34;-核心功能&#34;&gt;🌟 核心功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;发送文章与动态&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;/api/hugo/create-post&lt;/li&gt;
+&lt;li&gt;/api/hugo/create-moment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外置config文件&lt;/strong&gt;: 可自定义文章发布路径、密钥、api监听端口号&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动处理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;生成 Hugo 标准 Front Matter（标题、时间、标签、分类等）&lt;/li&gt;
+&lt;li&gt;自动触发 Hugo 构建，发布后立即生效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-快速开始&#34;&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3 id=&#34;1-克隆仓库到本地&#34;&gt;1. 克隆仓库到本地&lt;/h3&gt;
+&lt;h3 id=&#34;2-配置configjson&#34;&gt;2. 配置 &lt;code&gt;config.json&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在项目根目录创建 &lt;code&gt;config.json&lt;/code&gt; 文件，按实际环境填写配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;api_key&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;your-strong-secret-key&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_content_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/posts&amp;#34;&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_moment_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/moments&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_project_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_exec_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin/hugo&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;listen_addr&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:8080&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8&lt;/span&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-编译与启动&#34;&gt;3. 编译与启动&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 编译（生成可执行文件）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;go build -o hugo-api hugo-api.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 启动服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;./hugo-api
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;后台运行&#34;&gt;后台运行&lt;/h4&gt;
+&lt;p&gt;linux 写一个系统服务即可，以下为示例:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为immich配置机器学习与硬件加速</title>
+      <link>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 02:27:29 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;h2 id=&#34;环境介绍&#34;&gt;环境介绍&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 24.04.2 LTS&lt;/li&gt;
+&lt;li&gt;GPU: NVIDIA GeForce GTX 1050 Ti&lt;/li&gt;
+&lt;li&gt;immich: docker compose部署&lt;/li&gt;
+&lt;li&gt;date: 2025-10-05&lt;/li&gt;
+&lt;li&gt;network: need proxy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模型下载&#34;&gt;模型下载&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;下载地址&lt;/strong&gt;：
+&lt;a href=&#34;https://huggingface.co/immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k/tree/main&#34;&gt;immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k at main&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载须知&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;给下载目标路径的目录预留充足磁盘空间，&amp;gt;20GB。&lt;/li&gt;
+&lt;li&gt;需安装git-lfs（管理git大文件的拓展）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt;sudo apt-get install git-lfs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;df -h ~/path  &lt;span style=&#34;color:#75715e&#34;&gt;# 查看仓库所在分区的空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#若目录下磁盘空间不足，迁移到别的目录，以下是迁移指令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;rsync -av 原路径 目标路径
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-a`：归档模式，保留文件权限、时间戳等所有属性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-v`：显示复制进度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;rm -rf ~/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#断点续连&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;git restore --source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;HEAD :/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把下载来的模型放在clip文件夹以下的位置：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>图床服务保姆级教程 2025白嫖github 彻底释放本地空间!</title>
+      <link>https://grayfalcon666.github.io/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;1756602474703.gif&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756602474703.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;还在手忙脚乱地在服务器和客户端之间传图片？还在为博客图片引用失效而头疼？其实这些都多余了！&lt;/p&gt;
+&lt;p&gt;拥有图床服务，就等于拥有了一个多端同步的媒体库——不仅能存图片，还能存GIF、PDF、文本文件等。写博客时无需纠结复杂格式，只需掌握简单的Markdown语法，就能快速搭建便捷又优雅的写作环境。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;h3 id=&#34;一环境准备&#34;&gt;一、环境准备&lt;/h3&gt;
+&lt;p&gt;本次搭建需用到以下工具，点击名称可直接跳转至对应下载/官网页面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PicGo&lt;/strong&gt;：图床上传工具，&lt;a href=&#34;https://github.com/Molunerfinn/PicGo&#34;&gt;GitHub官方仓库（可下载最新版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub仓库&lt;/strong&gt;：用于存储图片的免费云端空间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typora&lt;/strong&gt;：Markdown编辑器，&lt;a href=&#34;https://typora.io/&#34;&gt;官方下载链接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WordPress&lt;/strong&gt;：博客发布平台（可选，也可适配其他平台）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二最终实现效果&#34;&gt;二、最终实现效果&lt;/h3&gt;
+&lt;p&gt;截图后按下 &lt;code&gt;Ctrl+C&lt;/code&gt; 复制，再到Typora中 &lt;code&gt;Ctrl+V&lt;/code&gt; 粘贴，即可自动生成「Markdown语法+图片URL」的内容；发布时全选Typora内容，复制到博客发布页，一键完成发布。&lt;/p&gt;
+&lt;h3 id=&#34;三详细搭建步骤&#34;&gt;三、详细搭建步骤&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建github仓库存储图片的云端硬盘&#34;&gt;1. 创建GitHub仓库（存储图片的“云端硬盘”）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;登录GitHub，新建仓库，配置参考下图： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604369017.jpg&#34;&gt;&lt;img alt=&#34;1756604369017.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604369017.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键注意&lt;/strong&gt;：仓库必须设置为「Public」，否则图片外链无法公开访问。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;2-创建github-token授权picgo操作仓库&#34;&gt;2. 创建GitHub Token（授权PicGo操作仓库）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;进入GitHub的「Settings → Developer settings → Personal access tokens」，选择**「Generate new token (classic)」**（重点！选“classic”，新版token可能导致PicGo无权访问）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604774712.jpg&#34;&gt;&lt;img alt=&#34;1756604774712.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604774712.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;权限配置：勾选「repo」分类下的所有权限（确保PicGo能上传/管理图片）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756604774720.jpg&#34;&gt;&lt;img alt=&#34;1756604774720.jpg&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756604774720.jpg&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;生成Token后&lt;strong&gt;立即保存&lt;/strong&gt;（刷新页面后无法找回）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;3-配置picgo将图片上传到github&#34;&gt;3. 配置PicGo（将图片上传到GitHub）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://github.com/Molunerfinn/PicGo&#34;&gt;PicGo&lt;/a&gt;，在左侧选择「图床设置 → GitHub图床」。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关键参数填写（重点是「自定义域名」，根据需求二选一）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;海外服务器/需科学上网&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;https://raw.githubusercontent.com/你的用户名/你的仓库名/refs/heads/你的分支名/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;国内服务器（加速访问）&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;https://cdn.jsdelivr.net/gh/你的账户名/你的仓库名@你的分支名/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他参数：依次填写「GitHub用户名」「仓库名」「分支名（默认main）」「刚才保存的Token」，最后点击「确定」并设为默认图床。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;4-关联typora实现截图即上传&#34;&gt;4. 关联Typora（实现“截图即上传”）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://typora.io/&#34;&gt;Typora&lt;/a&gt;，进入「文件 → 偏好设置 → 图像」。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置如下（参考图片）： &lt;a href=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756606125506.png&#34;&gt;&lt;img alt=&#34;1756606125506.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//1756606125506.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;勾选「插入图片时自动上传」&lt;/li&gt;
+&lt;li&gt;上传服务选择「PicGo」&lt;/li&gt;
+&lt;li&gt;「PicGo路径」选择本地的「PicGo.exe」文件（如&lt;code&gt;D:\PicGo\PicGo.exe&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击「验证图片上传选项」，提示“成功”即配置完成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;四测试验证&#34;&gt;四、测试验证&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;用Windows截图快捷键 &lt;code&gt;Win + Shift + S&lt;/code&gt; 截取任意内容。&lt;/li&gt;
+&lt;li&gt;切换到Typora，按下 &lt;code&gt;Ctrl+V&lt;/code&gt; 粘贴。&lt;/li&gt;
+&lt;li&gt;若PicGo左下角弹出「上传成功」通知，且Typora中显示图片（而非本地路径），则图床搭建成功！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;后记为什么选github而非国内oss&#34;&gt;后记：为什么选GitHub而非国内OSS？&lt;/h2&gt;
+&lt;p&gt;我的WordPress强制开启了HTTPS，而七牛云等国内免费OSS提供的域名多为HTTP，需额外申请SSL证书（且需国内备案域名），流程繁琐。&lt;br&gt;
+GitHub自带HTTPS，无需备案且完全免费，虽国内访问速度略慢，但可通过「jsdelivr CDN」加速；若追求更稳定的国内访问，也可替换为Gitee仓库（操作流程一致）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用Nginx Proxy Manager为WordPress站点设置反向代理</title>
+      <link>https://grayfalcon666.github.io/posts/%E7%94%A8nginx-proxy-manager%E4%B8%BAwordpress%E7%AB%99%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E7%94%A8nginx-proxy-manager%E4%B8%BAwordpress%E7%AB%99%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image-20250906041322774&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//image-20250906041322774.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言：&lt;/h2&gt;
+&lt;p&gt;为什么需要给 WordPress 套反向代理？&lt;/p&gt;
+&lt;p&gt;有朋友可能会疑惑：WordPress 本身能设置站点 URL 和端口，为什么还要多此一举用反向代理？&lt;/p&gt;
+&lt;p&gt;核心原因很简单——避免 80/443 端口被博客独占。公网访问中，80（HTTP）和 443（HTTPS）是默认端口，若直接给 WordPress 用，后续想部署其他项目（如个人网盘、后台管理系统）就无法通过二级域名（如 drive.example.com ）复用这两个端口。而用 Nginx Proxy Manager（简称 NPM）做反向代理，能统一管理所有入站流量，通过不同二级域名分配端口，更灵活高效。&lt;/p&gt;
+&lt;p&gt;📌 说明：本文是博主第一篇技术博客，内容偏向新手友好，若有技术疏漏，欢迎各位大佬留言指正！&lt;/p&gt;
+&lt;h2 id=&#34;一前置准备环境与基础要求&#34;&gt;一、前置准备：环境与基础要求&lt;/h2&gt;
+&lt;p&gt;在开始前，先确认你的环境是否符合以下条件（仅供参考，非强制但推荐）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;部署环境：Nginx Proxy Manager（NPM）与 WordPress（WP）部署在同一台服务器&lt;/li&gt;
+&lt;li&gt;容器工具：两者均通过 Docker Compose 部署（需提前安装 Docker 和 Docker Compose，参考 Docker 官方安装指南）&lt;/li&gt;
+&lt;li&gt;网络环境：服务器已具备公网 IP，且开放必要端口（80、443、81），支持公网访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二步骤-1docker-配置端口映射--容器网络&#34;&gt;二、步骤 1：Docker 配置（端口映射 + 容器网络）&lt;/h2&gt;
+&lt;p&gt;这一步的核心是：让 NPM 和 WordPress 容器能互相通信，同时避免端口冲突。&lt;/p&gt;
+&lt;h3 id=&#34;11-配置容器端口映射关键&#34;&gt;1.1 配置容器端口映射（关键！）&lt;/h3&gt;
+&lt;p&gt;WordPress 容器有个特殊限制：容器内部必须使用 80 端口（否则无法通过 主机IP:端口 访问安装界面），因此需在 docker-compose.yml 中指定「宿主机端口:容器 80 端口」，宿主机端口可自定义（如 8000）。&lt;/p&gt;
+&lt;p&gt;示例：WordPress 端口映射配置&lt;/p&gt;
+&lt;h5 id=&#34;wordpress-的-docker-composeyml-片段&#34;&gt;WordPress 的 docker-compose.yml 片段&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;wordpress&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;wordpress:latest &lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# 推荐使用官方最新镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8000:80&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# 宿主机 8000 端口 → 容器 80 端口（宿主机端口可改，容器端必须是 80）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 其他配置（如数据库链接、 volumes 等）省略，需自行补充&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nginx Proxy Manager 端口映射配置&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

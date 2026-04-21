@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GO on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/tags/go/</link>
+    <description>Recent content in GO on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 03:00:08 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo API：快速发布你的hugo文章!</title>
+      <link>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 03:00:08 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/hugo-api%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84hugo%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;这是博主开源到github的另一个项目，此处贴的是使用文档。如果是跟我一样使用hugo建站并且苦于如何发布的小伙伴们，我强力推荐这个api，你会用上的！！&lt;/p&gt;
+&lt;p&gt;✿✿✿来支持一波吧✿✿✿&lt;/p&gt;
+&lt;p&gt;👇👇👇&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/grayfalcon666/hugo_api&#34;&gt;grayfalcon666/hugo_api: Quickly publish posts for your Hugo blog!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;preview&lt;/strong&gt;：
+&lt;img alt=&#34;hugo-api-preview.gif|750&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//hugo-api-preview.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;一个用 Go 编写的轻量级 API 服务，支持通过 &lt;strong&gt;表单提交&lt;/strong&gt;（直接复制 Markdown）快速创建 Hugo 静态博客文章，自动生成 Front Matter 并触发 Hugo 构建，无需手动操作文件或执行命令。&lt;/p&gt;
+&lt;h2 id=&#34;-核心功能&#34;&gt;🌟 核心功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;发送文章与动态&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;/api/hugo/create-post&lt;/li&gt;
+&lt;li&gt;/api/hugo/create-moment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外置config文件&lt;/strong&gt;: 可自定义文章发布路径、密钥、api监听端口号&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动处理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;生成 Hugo 标准 Front Matter（标题、时间、标签、分类等）&lt;/li&gt;
+&lt;li&gt;自动触发 Hugo 构建，发布后立即生效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-快速开始&#34;&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3 id=&#34;1-克隆仓库到本地&#34;&gt;1. 克隆仓库到本地&lt;/h3&gt;
+&lt;h3 id=&#34;2-配置configjson&#34;&gt;2. 配置 &lt;code&gt;config.json&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在项目根目录创建 &lt;code&gt;config.json&lt;/code&gt; 文件，按实际环境填写配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;api_key&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;your-strong-secret-key&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_content_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/posts&amp;#34;&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_moment_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog/content/moments&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_project_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/home/user/blog&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hugo_exec_path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin/hugo&amp;#34;&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7&lt;/span&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;listen_addr&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:8080&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8&lt;/span&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-编译与启动&#34;&gt;3. 编译与启动&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 编译（生成可执行文件）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;go build -o hugo-api hugo-api.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 启动服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;./hugo-api
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;后台运行&#34;&gt;后台运行&lt;/h4&gt;
+&lt;p&gt;linux 写一个系统服务即可，以下为示例:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

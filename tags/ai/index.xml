@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/tags/ai/</link>
+    <description>Recent content in AI on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 02:27:29 +0800</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为immich配置机器学习与硬件加速</title>
+      <link>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 06 Oct 2025 02:27:29 +0800</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E4%B8%BAimmich%E9%85%8D%E7%BD%AE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;h2 id=&#34;环境介绍&#34;&gt;环境介绍&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 24.04.2 LTS&lt;/li&gt;
+&lt;li&gt;GPU: NVIDIA GeForce GTX 1050 Ti&lt;/li&gt;
+&lt;li&gt;immich: docker compose部署&lt;/li&gt;
+&lt;li&gt;date: 2025-10-05&lt;/li&gt;
+&lt;li&gt;network: need proxy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模型下载&#34;&gt;模型下载&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;下载地址&lt;/strong&gt;：
+&lt;a href=&#34;https://huggingface.co/immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k/tree/main&#34;&gt;immich-app/XLM-Roberta-Large-ViT-H-14__frozen_laion5b_s13b_b90k at main&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下载须知&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;给下载目标路径的目录预留充足磁盘空间，&amp;gt;20GB。&lt;/li&gt;
+&lt;li&gt;需安装git-lfs（管理git大文件的拓展）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt;sudo apt-get install git-lfs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;df -h ~/path  &lt;span style=&#34;color:#75715e&#34;&gt;# 查看仓库所在分区的空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#若目录下磁盘空间不足，迁移到别的目录，以下是迁移指令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;rsync -av 原路径 目标路径
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-a`：归档模式，保留文件权限、时间戳等所有属性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# `-v`：显示复制进度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;rm -rf ~/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#断点续连&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;git restore --source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;HEAD :/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把下载来的模型放在clip文件夹以下的位置：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

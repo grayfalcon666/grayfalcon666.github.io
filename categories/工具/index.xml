@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>工具 on Jamaisvu&#39;s blog</title>
+    <link>https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://grayfalcon666.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>💻电脑时间管理大师：Manic Time 最易懂的速成教程</title>
+      <link>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image.png|450&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20250906144436192.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;p&gt;博主有段时间特别痴迷记录生活习惯，我曾在 4 月份陷入 手动复盘的困境—— 想记录电脑使用习惯却难以坚持：手动记太麻烦、整理数据费时间，一想到复盘流程就头大。直到遇到 &lt;strong&gt;Manic Time&lt;/strong&gt;，这款电脑时间管理软件彻底解决了我的痛点：它能静默在后台运行，从开机到关机全自动记录电脑操作（温馨提示：隐私相关记录还是别记录了哈🤣）。&lt;/p&gt;
+&lt;p&gt;虽初用时觉得功能繁琐、对新手不友好，但熟悉后才发现它的核心优势 ——&lt;strong&gt;无痛自动记录&lt;/strong&gt;：只需花 10 分钟学基础操作，后续无需手动干预，想看时间习惯时随时调用数据。本文专为和我一样的 “记录新手” 打造，用最直白的步骤，教你掌握 Manic Time 的自动记录核心功能。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;h3 id=&#34;1-核心前置3-分钟摸清-manic-time-关键模块&#34;&gt;1. 核心前置：3 分钟摸清 Manic Time 关键模块&lt;/h3&gt;
+&lt;p&gt;Manic Time 的自动记录逻辑围绕 “时间轴 + 统计” 展开，新手无需学所有功能，先掌握 2 个核心模块即可。&lt;/p&gt;
+&lt;h4 id=&#34;11-时间轴自动记录的-数据底座&#34;&gt;1.1 时间轴：自动记录的 “数据底座”&lt;/h4&gt;
+&lt;p&gt;时间轴是 Manic Time 记录数据的核心载体，3 条关键时间轴分清就好了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标签时间轴&lt;/strong&gt;：按自定义标签记录，但&lt;strong&gt;无法自动标记&lt;/strong&gt;，需手动操作（后续会教如何 “变自动”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;程序时间轴&lt;/strong&gt;：按使用的程序（如 edge.exe、微信.exe）自动记录，无需手动干预，是 “全自动数据来源”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动标记时间轴&lt;/strong&gt;：支持按规则自动标记标签，可理解为 “能自动工作的标签轴”（核心功能，后续重点用）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图 1：Manic Time 时间轴面板（3 条核心时间轴，新手重点关注）&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image|116&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20250906125810031.png&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;12-统计信息让时间分配-可视化&#34;&gt;1.2 统计信息：让时间分配 “可视化”&lt;/h4&gt;
+&lt;p&gt;统计信息是 “看结果” 的关键，能将时间轴数据转化为直观图表：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击顶部导航栏「统计信息」，面板会自动汇总所有时间轴数据。&lt;/li&gt;
+&lt;li&gt;调整「分组依据」：可按 “天” 或 “周” 汇总，方便查看短期 / 长期时间分配。&lt;/li&gt;
+&lt;li&gt;切换图表类型：建议用 “折线图”，能清晰看到某类活动（如娱乐、工作）的时间变化趋势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们做所有自动设置的最终目的，就是让「统计信息」能直接展示 “自定义标签” 的时间数据，比如 “娱乐视频耗时”“工作软件使用时长”，方便快速复盘。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Obsidian 多端同步：用七牛云 &#43; Remotely Save 实现手机与电脑无缝协作</title>
+      <link>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://grayfalcon666.github.io/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;image.png&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906031852383.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;引言灵感随时记多端不脱节&#34;&gt;引言：灵感随时记，多端不脱节&lt;/h2&gt;
+&lt;p&gt;Obsidian 的白板功能对&lt;strong&gt;梳理编程数据流&lt;/strong&gt;、&lt;strong&gt;搭建知识体系&lt;/strong&gt;十分友好，但很多时候灵感来袭时我们并不在电脑前，只能用手机临时记录，后续还要手动迁移到电脑端的 Obsidian 中，既繁琐又容易遗漏细节。&lt;/p&gt;
+&lt;p&gt;如果 Obsidian 能实现多端同步，就能让创作更顺畅：手机随手记下的想法，下次打开电脑时，只需点击同步按钮，就能继续编辑；再结合之前分享的&lt;a href=&#34;https://blog.jamaisvu.tech/102/%E7%99%BD%E5%AB%96github%EF%BC%8C%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4%EF%BC%8C%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1/&#34;&gt;PicGo 图床搭建教程&lt;/a&gt;，还能在手机与电脑间快速传输文字和图片。&lt;/p&gt;
+&lt;h2 id=&#34;准备环境所需工具清单&#34;&gt;准备环境：所需工具清单&lt;/h2&gt;
+&lt;p&gt;要实现 Obsidian 多端同步，需准备以下工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;云存储服务：&lt;strong&gt;七牛云对象存储&lt;/strong&gt;（作为 Obsidian 的远程存储载体）；&lt;/li&gt;
+&lt;li&gt;笔记应用：&lt;strong&gt;Obsidian&lt;/strong&gt;（需同时安装 PC 端和手机端，建议使用最新版本）；&lt;/li&gt;
+&lt;li&gt;同步插件：&lt;strong&gt;Remotely Save&lt;/strong&gt;（Obsidian 第三方插件，负责多端数据同步）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;第一步七牛云对象存储配置&#34;&gt;第一步：七牛云对象存储配置&lt;/h2&gt;
+&lt;p&gt;七牛云的「对象存储（Kodo）」是同步的核心 “仓库”，请按以下步骤配置：&lt;/p&gt;
+&lt;h3 id=&#34;1-注册并完成实名认证&#34;&gt;1. 注册并完成实名认证&lt;/h3&gt;
+&lt;p&gt;访问&lt;a href=&#34;https://www.qiniu.com/&#34;&gt;七牛云官网&lt;/a&gt;，完成账号注册后，务必进行&lt;strong&gt;实名认证&lt;/strong&gt;（个人或企业认证均可，按页面提示提交资料即可）。&lt;br&gt;
+⚠️ 实名认证是使用对象存储的必要前提，必须完成！&lt;/p&gt;
+&lt;h3 id=&#34;2-创建存储空间&#34;&gt;2. 创建存储空间&lt;/h3&gt;
+&lt;p&gt;实名认证通过后，进入七牛云&lt;strong&gt;控制台&lt;/strong&gt;，操作如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;点击左侧导航栏「对象存储 Kodo」；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击「创建空间」，填写相关信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空间名称：自定义（需保证全局唯一，例如&lt;code&gt;obsidian-sync-2025&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;存储区域：选择&lt;strong&gt;距离自己最近的区域&lt;/strong&gt;（后续同步速度更快，区域与 ID 的对应关系见下文表格）；&lt;/li&gt;
+&lt;li&gt;其他选项（如存储类型、访问控制等）：新手保持默认设置即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;3-获取访问密钥aksk&#34;&gt;3. 获取访问密钥（AK、SK）&lt;/h3&gt;
+&lt;p&gt;同步 Obsidian 需要 “访问密钥” 来验证身份，步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击控制台右上角&lt;strong&gt;头像&lt;/strong&gt;，选择「密钥管理」；&lt;/li&gt;
+&lt;li&gt;点击「创建密钥」（若已有密钥，可直接使用）；&lt;/li&gt;
+&lt;li&gt;保存生成的**AccessKey（AK）**和**SecretKey（SK）**—— 这是后续配置的关键凭证，务必妥善保存！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906022658285.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/refs/heads/img//20250906024018732.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步obsidian-与-remotely-save-同步配置&#34;&gt;第二步：Obsidian 与 Remotely Save 同步配置&lt;/h2&gt;
+&lt;p&gt;完成七牛云配置后，需在 Obsidian 中安装并配置「Remotely Save」插件，实现与云存储的连接。&lt;/p&gt;
+&lt;h3 id=&#34;1-安装-remotely-save-插件&#34;&gt;1. 安装 Remotely Save 插件&lt;/h3&gt;
+&lt;p&gt;打开 Obsidian PC 端，依次操作：&lt;br&gt;
+&lt;code&gt;设置&lt;/code&gt; → &lt;code&gt;第三方插件&lt;/code&gt; → 开启「社区插件市场」→ 搜索「Remotely Save」→ 点击「安装」并「启用」。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
