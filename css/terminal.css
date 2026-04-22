@@ -41,13 +41,12 @@ body, html {
 .error { color: #ef2929; } /* 报错红 */
 .warning { color: #c4a000; } /* 警告黄 */
 
-/* 闪烁的方块光标 */
 #cursor {
     display: inline-block;
-    width: 8px;
-    height: 1.2em;
-    background-color: #d3d7cf;
-    vertical-align: bottom;
+    width: 0.6em;         /* 宽度随字体大小缩放 */
+    height: 1.15em;       /* 高度贴合行高 */
+    background-color: #d3d7cf; /* 光标的颜色 */
+    vertical-align: -0.15em;   /* 稍微往下沉一点，完美贴合文字基线 */
     animation: blink 1s step-end infinite;
     margin-left: 2px;
 }
