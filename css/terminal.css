@@ -1,0 +1,58 @@
+/* 基础重置与终端质感背景 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #121212;
+    color: #d3d7cf; /* 经典的浅灰白文字 */
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+#terminal {
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    cursor: text; /* 让整个屏幕看起来像文本编辑器 */
+    scrollbar-width: thin;
+    scrollbar-color: #333 #121212;
+}
+
+/* 隐藏真实输入框，移出可视区域但保留焦点能力 */
+#cmd-input {
+    position: absolute;
+    opacity: 0;
+    left: -9999px;
+}
+
+/* 行间距与换行 */
+.line {
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin-bottom: 2px;
+}
+
+/* 语法高亮配色方案 */
+.prompt { color: #8ae234; font-weight: bold; } /* 终端绿 */
+.highlight { color: #729fcf; font-weight: bold; } /* 强调蓝 */
+.error { color: #ef2929; } /* 报错红 */
+.warning { color: #c4a000; } /* 警告黄 */
+
+/* 闪烁的方块光标 */
+#cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: #d3d7cf;
+    vertical-align: bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
