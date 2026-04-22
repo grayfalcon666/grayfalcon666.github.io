@@ -1,0 +1,45 @@
+{
+    "head": {
+        "title": "Jamaisvu's Blog",
+        "description": "Author:Jamaisvu, Category:Personal Blog",
+        "favicon": "/images/favicon.jpg"
+    },
+    "intro": {
+        "title": "Jamaisvu",
+        "subtitle": "code a brilliant life!",
+        "enter": "Enter",
+        "supportAuthor": true,
+        "background": true
+    },
+    "main": {
+        "name": "Jamaisvu",
+        "signature": "Fear knocked at the door, and no one was there.",
+        "avatar": {
+            "link": "/images/avatar_2026_04_22.jpg",
+            "height": "100",
+            "width": "100"
+        },
+        "ul": {
+            "first": {
+                "href": "/posts/",
+                "icon": "bokeyuan",
+                "text": "Blog"
+            },
+            "second": {
+                "href": "/moments/",
+                "icon": "music",
+                "text": "Music"
+            },
+            "third": {
+                "href": "mailto:grayfalcon666@gmail.com",
+                "icon": "email",
+                "text": "Email"
+            },
+            "fourth": {
+                "href": "https://github.com/grayfalcon666/",
+                "icon": "github",
+                "text": "Github"
+            }
+        }
+    }
+}
