@@ -14,7 +14,7 @@
     <lastBuildDate>Wed, 22 Apr 2026 21:17:25 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>celestial-flow</title>
+      <title>Celestial Flow (Original Mix)</title>
       <link>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</link>
       <pubDate>Wed, 22 Apr 2026 21:17:25 +0800</pubDate>
       <guid>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</guid>
@@ -23,6 +23,7 @@
 &lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
 
 &lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
     &lt;meting-js
         server=&#34;netease&#34;
         type=&#34;song&#34;
@@ -33,6 +34,8 @@
         api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
     &gt;
     &lt;/meting-js&gt;
+    
+    
 &lt;/div&gt;
 &lt;p&gt;今天忙碌了校招，晚上又是答辩，可却全是吃力又不讨好。晚上回到家，偶然听到了这首chill-out，终于觉得如此轻松。。是啊，我都忘记了生活本可以如此美好。😢&lt;/p&gt;</description>
     </item>
@@ -57,6 +60,7 @@
 &lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
 
 &lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
     &lt;meting-js
         server=&#34;netease&#34;
         type=&#34;song&#34;
@@ -67,6 +71,31 @@
         api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
     &gt;
     &lt;/meting-js&gt;
+    
+    
+&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Your Distant World (Original Mix)</title>
+      <link>https://tech.jamaisvu.cn/music/your-distant-world/</link>
+      <pubDate>Wed, 22 Apr 2026 10:00:00 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/your-distant-world/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
+    &lt;meting-js
+        auto=&#34;https://music.163.com/#/song?id=494410222&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+    
+    
 &lt;/div&gt;</description>
     </item>
     <item>
