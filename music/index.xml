@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>我的唱片室 on Jamaisvu&#39;s blog</title>
+    <link>https://tech.jamaisvu.cn/music/</link>
+    <description>Recent content in 我的唱片室 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Apr 2026 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://tech.jamaisvu.cn/music/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yellow</title>
+      <link>https://tech.jamaisvu.cn/music/yellow/</link>
+      <pubDate>Wed, 22 Apr 2026 10:00:00 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/yellow/</guid>
+      <description>&lt;p&gt;这是我最喜欢的一首英伦摇滚，前奏吉他一响，满眼都是繁星。&lt;/p&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    &lt;meting-js
+        server=&#34;netease&#34;
+        type=&#34;song&#34;
+        id=&#34;17177324&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+&lt;/div&gt;
+&lt;p&gt;这里还可以继续写你的听歌感受、歌词摘抄等等&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tech.jamaisvu.cn/books/1984/</loc>
-    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://tech.jamaisvu.cn/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/books/the-wisdom-of-life/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
+    <loc>https://tech.jamaisvu.cn/music/yellow/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://tech.jamaisvu.cn/books/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/music/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/categories/</loc>
