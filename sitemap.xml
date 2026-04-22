@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tech.jamaisvu.cn/categories/</loc>
-    <lastmod>2026-04-22T04:24:04+08:00</lastmod>
+    <loc>https://tech.jamaisvu.cn/books/1984/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</loc>
+    <loc>https://tech.jamaisvu.cn/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/books/the-wisdom-of-life/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/books/</loc>
+    <lastmod>2026-04-22T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/categories/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/go/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/</loc>
+    <loc>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/posts/</loc>
