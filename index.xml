@@ -11,8 +11,31 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Apr 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 21:17:25 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>celestial-flow</title>
+      <link>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</link>
+      <pubDate>Wed, 22 Apr 2026 21:17:25 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    &lt;meting-js
+        server=&#34;netease&#34;
+        type=&#34;song&#34;
+        id=&#34;1850004483&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+&lt;/div&gt;
+&lt;p&gt;今天忙碌了校招，晚上又是答辩，可却全是吃力又不讨好。晚上回到家，偶然听到了这首chill-out，终于觉得如此轻松。。是啊，我都忘记了生活本可以如此美好。😢&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Wisdom Of Life</title>
       <link>https://tech.jamaisvu.cn/books/the-wisdom-of-life/</link>
@@ -28,7 +51,7 @@
       <link>https://tech.jamaisvu.cn/music/yellow/</link>
       <pubDate>Wed, 22 Apr 2026 10:00:00 +0800</pubDate>
       <guid>https://tech.jamaisvu.cn/music/yellow/</guid>
-      <description>&lt;p&gt;这是我最喜欢的一首英伦摇滚，前奏吉他一响，满眼都是繁星。&lt;/p&gt;
+      <description>&lt;p&gt;这是我最喜欢的一首英伦摇滚，前奏吉他一响，满眼都是繁星。听了很多年&lt;/p&gt;
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
@@ -44,8 +67,7 @@
         api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
     &gt;
     &lt;/meting-js&gt;
-&lt;/div&gt;
-&lt;p&gt;这里还可以继续写你的听歌感受、歌词摘抄等等&amp;hellip;&lt;/p&gt;</description>
+&lt;/div&gt;</description>
     </item>
     <item>
       <title>golang八股文</title>
