@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</loc>
-    <lastmod>2026-04-22T21:17:25+08:00</lastmod>
+    <loc>https://tech.jamaisvu.cn/categories/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/series/golang-study/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/posts/golang-concurrency/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/tags/hugo/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/tags/papermod/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/posts/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/tags/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/series/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</loc>
     <lastmod>2026-04-22T21:17:25+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/music/</loc>
@@ -23,19 +53,10 @@
     <loc>https://tech.jamaisvu.cn/books/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/categories/</loc>
-    <lastmod>2026-04-22T04:24:04+08:00</lastmod>
-  </url><url>
     <loc>https://tech.jamaisvu.cn/tags/go/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</loc>
-    <lastmod>2026-04-22T04:24:04+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/posts/</loc>
-    <lastmod>2026-04-22T04:24:04+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/tags/</loc>
+    <loc>https://tech.jamaisvu.cn/posts/golang-basic-knowledges/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
@@ -80,19 +101,7 @@
     <loc>https://tech.jamaisvu.cn/posts/%E7%94%B5%E8%84%91%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88manic-time-%E6%9C%80%E6%98%93%E6%87%82%E7%9A%84%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/tags/hugo/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://tech.jamaisvu.cn/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-&#43;-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/tags/papermod/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2025-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/</loc>

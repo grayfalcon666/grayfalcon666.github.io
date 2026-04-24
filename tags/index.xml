@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Apr 2026 04:24:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 23:06:58 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://tech.jamaisvu.cn/tags/hugo/</link>
+      <pubDate>Fri, 24 Apr 2026 23:06:58 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PaperMod</title>
+      <link>https://tech.jamaisvu.cn/tags/papermod/</link>
+      <pubDate>Fri, 24 Apr 2026 23:06:58 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/tags/papermod/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>标签测试</title>
+      <link>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Fri, 24 Apr 2026 23:06:58 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</guid>
+      <description></description>
+    </item>
     <item>
       <title>GO</title>
       <link>https://tech.jamaisvu.cn/tags/go/</link>
@@ -60,27 +81,6 @@
       <link>https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sat, 27 Sep 2025 22:55:35 +0800</pubDate>
       <guid>https://tech.jamaisvu.cn/tags/%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hugo</title>
-      <link>https://tech.jamaisvu.cn/tags/hugo/</link>
-      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://tech.jamaisvu.cn/tags/hugo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PaperMod</title>
-      <link>https://tech.jamaisvu.cn/tags/papermod/</link>
-      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://tech.jamaisvu.cn/tags/papermod/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>标签测试</title>
-      <link>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</link>
-      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/</guid>
       <description></description>
     </item>
   </channel>

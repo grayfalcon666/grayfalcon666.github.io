@@ -14,10 +14,10 @@
     <lastBuildDate>Wed, 22 Apr 2026 04:24:04 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>golang八股文</title>
-      <link>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</link>
+      <title>Golang八股文</title>
+      <link>https://tech.jamaisvu.cn/posts/golang-basic-knowledges/</link>
       <pubDate>Wed, 22 Apr 2026 04:24:04 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/posts/golang%E5%85%AB%E8%82%A1%E6%96%87%E5%90%88%E9%9B%86%E6%9D%A5%E5%92%AF/</guid>
+      <guid>https://tech.jamaisvu.cn/posts/golang-basic-knowledges/</guid>
       <description>&lt;p&gt;本文持续更新&lt;/p&gt;
 &lt;h2 id=&#34;堆栈&#34;&gt;堆、栈&lt;/h2&gt;
 &lt;p&gt;它们是程序运行时，两块&lt;strong&gt;用途完全不同&lt;/strong&gt;的内存区域。&lt;/p&gt;
