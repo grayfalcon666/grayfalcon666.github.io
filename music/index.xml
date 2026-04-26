@@ -11,8 +11,31 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Apr 2026 21:17:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 05:33:10 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/music/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>111511</title>
+      <link>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</link>
+      <pubDate>Sun, 26 Apr 2026 05:33:10 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
+    &lt;meting-js
+        auto=&#34;https://y.music.163.com/m/song?id=1881994010&amp;amp;uct2=XivowAAGMC5P8cu%2BwDmFCA%3D%3D&amp;amp;fx-wechatnew=t1&amp;amp;fx-wxqd=c&amp;amp;fx-wordtest=t1&amp;amp;fx-listentest=t3&amp;amp;H5_DownloadVIPGift=&amp;amp;playerUIModeId=76001&amp;amp;PlayerStyles_SynchronousSharing=t3&amp;amp;dlt=0846&amp;amp;app_version=9.3.60&amp;amp;sc=wm&amp;amp;tn=&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+    
+    
+&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Celestial Flow (Original Mix)</title>
       <link>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</link>
@@ -41,9 +64,9 @@
     </item>
     <item>
       <title>Yellow</title>
-      <link>https://tech.jamaisvu.cn/music/yellow/</link>
+      <link>https://tech.jamaisvu.cn/music/yellow-coldplay/</link>
       <pubDate>Wed, 22 Apr 2026 10:00:00 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/yellow/</guid>
+      <guid>https://tech.jamaisvu.cn/music/yellow-coldplay/</guid>
       <description>&lt;p&gt;这是我最喜欢的一首英伦摇滚，前奏吉他一响，满眼都是繁星。听了很多年&lt;/p&gt;
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
@@ -87,6 +110,13 @@
     
     
 &lt;/div&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://tech.jamaisvu.cn/music/you-may-love/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/you-may-love/</guid>
+      <description>&lt;p&gt;分享Simon O&amp;rsquo;Shine的单曲《You May Love (Original Mix)》: https://163cn.tv/5AUiCok (来自@网易云音乐)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

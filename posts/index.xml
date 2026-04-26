@@ -564,5 +564,91 @@ GitHub自带HTTPS，无需备案且完全免费，虽国内访问速度略慢，
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 其他配置（如数据库链接、 volumes 等）省略，需自行补充&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nginx Proxy Manager 端口映射配置&lt;/p&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>https://tech.jamaisvu.cn/posts/rabbitmq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/rabbitmq/</guid>
+      <description>&lt;h2 id=&#34;角色&#34;&gt;角色&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Connection（连接）&lt;/strong&gt;：与 RabbitMQ 服务器的&lt;strong&gt;物理 TCP 长连接&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Channel（通道）&lt;/strong&gt;：基于连接的&lt;strong&gt;轻量级逻辑连接&lt;/strong&gt;（官方推荐：一个连接开多个通道，避免多连接开销）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Exchange（交换机）&lt;/strong&gt;：消息路由中转站，负责将消息转发到对应队列&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Direct 交换机&lt;/strong&gt;：精确匹配路由键，消息只投递给绑定了相同路由键的队列&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;队列&lt;/strong&gt;：快递柜&lt;/li&gt;
+&lt;li&gt;生产者：只管发消息，不管消息存在哪、谁来取&lt;/li&gt;
+&lt;li&gt;消费者：自己创建队列，自己绑定交换机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;工作模式&#34;&gt;工作模式&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;模式名称&lt;/th&gt;
+          &lt;th&gt;交换机类型&lt;/th&gt;
+          &lt;th&gt;核心路由规则&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;1. 简单模式&lt;/td&gt;
+          &lt;td&gt;无（默认）&lt;/td&gt;
+          &lt;td&gt;生产者→队列→消费者（一对一）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2. 工作队列模式&lt;/td&gt;
+          &lt;td&gt;无（默认）&lt;/td&gt;
+          &lt;td&gt;一个队列，多个消费者争抢任务&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;3. 发布订阅模式&lt;/td&gt;
+          &lt;td&gt;Fanout&lt;/td&gt;
+          &lt;td&gt;广播消息（无视路由键）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;4. 路由模式&lt;/td&gt;
+          &lt;td&gt;Direct&lt;/td&gt;
+          &lt;td&gt;精确匹配路由键&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;5. 主题模式&lt;/td&gt;
+          &lt;td&gt;Topic&lt;/td&gt;
+          &lt;td&gt;通配符模糊匹配路由键&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;6. RPC 模式&lt;/td&gt;
+          &lt;td&gt;Direct&lt;/td&gt;
+          &lt;td&gt;双向同步通信（请求 + 响应）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;消息可靠性&#34;&gt;消息可靠性&lt;/h2&gt;
+&lt;h3 id=&#34;持久化&#34;&gt;持久化&lt;/h3&gt;
+&lt;p&gt;队列持久化
+消息持久化
+交换机持久化&lt;/p&gt;
+&lt;h3 id=&#34;消息确认机制&#34;&gt;消息确认机制&lt;/h3&gt;
+&lt;p&gt;RabbitMQ 的 &lt;code&gt;Publish&lt;/code&gt; 是一个&lt;strong&gt;纯异步&lt;/strong&gt;的发射后不管（Fire and Forget）操作，那要如何确认到底发送成功没有呢？就是Publisher Confirms登场的时候了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回执单写着“妥投”（&lt;code&gt;Ack&lt;/code&gt;）：代表服务器安全收到。&lt;/li&gt;
+&lt;li&gt;回执单写着“拒收/丢失”（&lt;code&gt;Nack&lt;/code&gt;）：代表出错了。
+用法：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-Go&#34; data-lang=&#34;Go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 1. 打造一个实体信箱，规定里面只能装“回执单” (amqp.Confirmation)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mailbox&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#66d9ef&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;amqp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Confirmation&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 2. 把信箱的位置告诉快递员&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;channel&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NotifyPublish&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;mailbox&lt;/span&gt;) 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-Go&#34; data-lang=&#34;Go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Confirmation&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;DeliveryTag&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;uint64&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 消息的编号（第1封信、第2封信...）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;Ack&lt;/span&gt;         &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;// 成功还是失败？(true = 成功, false = 失败)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通常在并发场景下的使用流程：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://tech.jamaisvu.cn/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

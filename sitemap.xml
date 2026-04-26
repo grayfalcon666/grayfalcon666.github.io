@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tech.jamaisvu.cn/</loc>
+    <lastmod>2026-04-26T14:50:52+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/moments/</loc>
+    <lastmod>2026-04-26T14:50:52+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</loc>
+    <lastmod>2026-04-26T05:33:10+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/music/</loc>
+    <lastmod>2026-04-26T05:33:10+08:00</lastmod>
+  </url><url>
     <loc>https://tech.jamaisvu.cn/categories/</loc>
     <lastmod>2026-04-24T23:06:58+08:00</lastmod>
   </url><url>
@@ -12,9 +24,6 @@
     <lastmod>2026-04-24T23:06:58+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/hugo/</loc>
-    <lastmod>2026-04-24T23:06:58+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/</loc>
     <lastmod>2026-04-24T23:06:58+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/papermod/</loc>
@@ -38,13 +47,10 @@
     <loc>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</loc>
     <lastmod>2026-04-22T21:17:25+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/music/</loc>
-    <lastmod>2026-04-22T21:17:25+08:00</lastmod>
-  </url><url>
     <loc>https://tech.jamaisvu.cn/books/the-wisdom-of-life/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/music/yellow/</loc>
+    <loc>https://tech.jamaisvu.cn/music/yellow-coldplay/</loc>
     <lastmod>2026-04-22T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/music/your-distant-world/</loc>
@@ -61,9 +67,6 @@
   </url><url>
     <loc>https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-04-22T04:24:04+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/moments/</loc>
-    <lastmod>2026-04-22T01:50:25+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/api/</loc>
     <lastmod>2025-10-06T03:00:08+08:00</lastmod>
@@ -112,6 +115,12 @@
   </url><url>
     <loc>https://tech.jamaisvu.cn/archives/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/music/you-may-love/</loc>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/posts/rabbitmq/</loc>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/posts/%E6%9C%AA%E5%91%BD%E5%90%8D/</loc>
   </url><url>
     <loc>https://tech.jamaisvu.cn/hub/</loc>
   </url><url>
