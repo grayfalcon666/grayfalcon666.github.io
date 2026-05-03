@@ -11,8 +11,32 @@
     </image>
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 May 2026 03:30:06 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 19:10:59 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/music/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>when the party&#39;s over (Miro Remix)</title>
+      <link>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</link>
+      <pubDate>Sun, 03 May 2026 19:10:59 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</guid>
+      <description>&lt;p&gt;miro是xeuphoria的大号，人称钢琴小王子。
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
+    &lt;meting-js
+        auto=&#34;https://y.music.163.com/m/song?id=1361188468&amp;amp;uct2=XivowAAGMC5P8cu%2BwDmFCA%3D%3D&amp;amp;fx-wechatnew=t1&amp;amp;fx-wxqd=c&amp;amp;fx-wordtest=t1&amp;amp;fx-listentest=t3&amp;amp;H5_DownloadVIPGift=&amp;amp;playerUIModeId=76001&amp;amp;PlayerStyles_SynchronousSharing=t3&amp;amp;dlt=0846&amp;amp;app_version=9.3.60&amp;amp;sc=wm&amp;amp;tn=&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+    
+    
+&lt;/div&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Wuthering Heights (Original Mix)</title>
       <link>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</link>
