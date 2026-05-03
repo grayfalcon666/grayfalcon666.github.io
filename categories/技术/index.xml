@@ -11,8 +11,61 @@
     </image>
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Apr 2026 04:24:04 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 06:18:18 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>悲观锁、乐观锁与三大分布式锁总结</title>
+      <link>https://tech.jamaisvu.cn/posts/classic-distributed-locks/</link>
+      <pubDate>Mon, 04 May 2026 06:18:18 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/classic-distributed-locks/</guid>
+      <description>&lt;h2 id=&#34;1-悲观锁与乐观锁&#34;&gt;1. 悲观锁与乐观锁&lt;/h2&gt;
+&lt;h3 id=&#34;11-悲观锁&#34;&gt;1.1 悲观锁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思想&lt;/strong&gt;：默认一定会存在资源竞争，提前锁定资源独占使用，其他请求阻塞等待，使用完毕再释放锁&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：先上锁，执行业务，阻塞其他并发请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-乐观锁&#34;&gt;1.2 乐观锁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思想&lt;/strong&gt;：默认并发冲突极少发生，不主动加排他锁，所有请求并行执行，出现冲突后再做重试、回滚处理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：执行业务在前，冲突处理在后，全程不阻塞其他请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;特别注意&lt;/strong&gt;：纯版本号乐观锁，作用是解决多人并发修改冲突，无法用于拦截单人重复提交；误用会触发不必要的并发修改异常，业务语义错乱。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-redis-分布式锁&#34;&gt;2. Redis 分布式锁&lt;/h2&gt;
+&lt;p&gt;异步弱一致、看门狗续命、自旋抢锁、存在丢锁风险
+存储唯一uuid标识锁持有者，防止误删除他人锁&lt;/p&gt;
+&lt;h3 id=&#34;21-数据结构&#34;&gt;2.1 数据结构&lt;/h3&gt;
+&lt;h4 id=&#34;211-简易普通分布式锁string-类型&#34;&gt;2.1.1 简易普通分布式锁（String 类型）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;结构&lt;/strong&gt;：String Key → Value&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key&lt;/strong&gt;：lock:stock:1001&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Value&lt;/strong&gt;：唯一随机 UUID（锁持有者标识）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;附带&lt;/strong&gt;：expire 自动过期时间&lt;/li&gt;
+&lt;li&gt;无内置版本号，value仅做身份标识，无序无递增时序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;212-redisson-可重入分布式锁hash-类型&#34;&gt;2.1.2 Redisson 可重入分布式锁（Hash 类型）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hash Key&lt;/strong&gt;：lock:stock:1001&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hash Field&lt;/strong&gt;：客户端ID + 线程ID&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hash Value&lt;/strong&gt;：锁重入次数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;附带&lt;/strong&gt;：全局过期时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：
+lock:stock:1001
+├─ client001-thread1 : 2  // 重入2次
+└─ client002-thread2 : 0&lt;/p&gt;
+&lt;h3 id=&#34;22-实现流程&#34;&gt;2.2 实现流程&lt;/h3&gt;
+&lt;h4 id=&#34;221-抢锁&#34;&gt;2.2.1 抢锁&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;生成唯一随机token；&lt;/li&gt;
+&lt;li&gt;执行原子命令 SETNX key token EX 过期时间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;key:锁名称  value:唯一随机标识  NX:不存在才创建  EX:过期时间秒
+SET lock:order:1001 uuid_8888 NX EX 30
+命令返回成功 = 抢到锁，失败 = 未抢到。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Golang八股文</title>
       <link>https://tech.jamaisvu.cn/posts/golang-basic-knowledges/</link>

@@ -5,7 +5,20 @@
 </a><a href=/books/ style="background:var(--tertiary);padding:8px 16px;border-radius:8px;font-size:.9rem;transition:all .3s">📚 书架
 </a><a href=/music/ style="background:var(--tertiary);padding:8px 16px;border-radius:8px;font-size:.9rem;transition:all .3s">🎵 音乐</a></div></div><footer class=entry-footer><div class=social-icons><a href=mailto:grayfalcon666@gmail.com target=_blank rel="noopener noreferrer me" title=Email><svg viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 </a><a href=/index.xml target=_blank rel="noopener noreferrer me" title=Rss><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg>
-</a><a href=https://github.com/grayfalcon666/ target=_blank rel="noopener noreferrer me" title=Github><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></footer></article><article class=post-entry><header class=entry-header><h2>一篇讲清api与webhook</h2></header><div class=entry-content><p>基本区别 许多小白第一次接触webhook的时候常常会与api混淆，那么我们先来看看两者的本质差别在哪：
+</a><a href=https://github.com/grayfalcon666/ target=_blank rel="noopener noreferrer me" title=Github><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></div></footer></article><article class=post-entry><header class=entry-header><h2>在windows上使用mihomo裸核</h2></header><div class=entry-content><p>从简开始 相信不少人刚开始折腾内核的时候，都是一脸茫然的，要配置的内容太多，对新手不友好。所以我们从最简单的方法做起，力求先把内核跑起来，然后再慢慢拓展。
+搞代理的前提是你需要去各大机场订阅节点，或者你自己拥有节点。通常机场会给你提供一个订阅链接🔗，复制下来。
+下载内核 先去mihomo仓库，根据你的电脑下一个适合的内核版本（去参考官方文档），我下的是这个版本: 获取配置 在任意位置建一个文件夹，就叫mihomo吧。 在该位置打开cmd，输入
+1curl -k -H "User-Agent: Clash" -o config.yaml "你的订阅链接" 添加-k参数跳过证书验证（仅临时测试使用） -H "User-Agent: Clash" 的作用是将请求头中的用户代理标识为 Clash，部分机场可能会根据此标识返回适配的配置格式。 如果机场支持连接转换成clash格式的话，此时你的mihomo文件夹下会出现一个新的config.yaml文件，打开看一下，这个就是机场给你配好的基础配置。 运行内核 是不是很简单?这个配置已经足够内核正常运行了，我们接着把它跑起来。
+打开powershell，输入
+1.\mihomo-windows-amd64.exe -d .\ -f config.yaml -d .\ 用于指定程序的工作目录 -f config.yaml 用于指定配置文件路径 第一次运行需要拉取geoip文件，可能需要给powershell设置代理才能拉取成功（实在不行暂时用客户端吧，开个tun模式）
+在性能管理器里检查一下，发现内核正在运行，说明内核启动成功： 开启代理 启动了内核之后的最后一步：我们要到系统设置中手动开启系统代理： 至此，我们学会了如何使用裸核mihomo开启代理，不管那些有的没的，至少我们已经可以成功运行啦。
+要想在windows的终端使用代理，就在当前会话输入 set http_proxy=http://127.0.0.1:7890，如图所示： 我们已经与google正常连通。
+更进一步 现在我们用的完全是机场给我们的配置，当然会有很多细节处没有匹配我们的个人需求，所以我们需要自己去改进一下这个配置，当然如果你觉得这样已经够用，那么不必接着往下看。
+自己写规则最主要的目的显然是为了能够让一些自己的服务器或者一些特殊地址能够直连\走代理，其实整个代理配置说白了就是 规定了谁要走直连，谁要走代理，方便我们使用代理时可以实现全自动化策略调控。
+要想自己写配置，我们首先要搞懂mihomo的配置分为哪些部分，每一部分是干什么的。让我带大家初步了解一下mihomo的配置中的几个主要模块：
+主要模块 proxy-providers 作用 定义 从哪里获取代理节点，支持在线订阅、本地文件等方式，是代理节点的 “源头”。
+常用参数 参数 含义 url 代理订阅链接 path 订阅内容的本地保存路径 type 订阅类型为 http（常见类型还有 file 本地文件、clash 标准格式等）。 interval 订阅更新间隔，通常是设定86400 秒 = 1 天，即每天自动更新一次代理节点。 全局配置 作用 定义 mihomo 的基础运行参数、网络入口（端口）、全局模式等，是软件启动的 基础设置。
+...</p></div><footer class=entry-footer><span title='2025-10-03 17:08:45 +0800 +0800'>October 3, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1231 words&nbsp;·&nbsp;Jamaisvu</footer><a class=entry-link aria-label="post link to 在windows上使用mihomo裸核" href=https://tech.jamaisvu.cn/posts/20251003170845-%E5%9C%A8windows%E4%B8%8A%E4%BD%BF%E7%94%A8mihomo%E8%A3%B8%E6%A0%B8/></a></article><article class=post-entry><header class=entry-header><h2>一篇讲清api与webhook</h2></header><div class=entry-content><p>基本区别 许多小白第一次接触webhook的时候常常会与api混淆，那么我们先来看看两者的本质差别在哪：
 api 一般用于用户主动发起请求，目标系统返回用户需要的数据、结果。API 用途广泛，涉及查询、修改、执行等
 webhook 一般用于用户提前设置好触发条件与通知方式，当符合条件，目标系统会主动给用户推送信息、执行动作，无须用户主动查询。webhook 用途单一，仅用于事件发生时的实时推送通知。
 **ps：**webhook 是 API 的一种，所有 webhook 都是 API，但不是所有 API 都是 webhook。
@@ -44,20 +57,7 @@ bash
 点击控制台右上角头像，选择「密钥管理」； 点击「创建密钥」（若已有密钥，可直接使用）； 保存生成的**AccessKey（AK）**和**SecretKey（SK）**—— 这是后续配置的关键凭证，务必妥善保存！ 第二步：Obsidian 与 Remotely Save 同步配置 完成七牛云配置后，需在 Obsidian 中安装并配置「Remotely Save」插件，实现与云存储的连接。
 1. 安装 Remotely Save 插件 打开 Obsidian PC 端，依次操作：
 设置 → 第三方插件 → 开启「社区插件市场」→ 搜索「Remotely Save」→ 点击「安装」并「启用」。
-...</p></div><footer class=entry-footer><span title='2025-09-06 00:00:00 +0000 UTC'>September 6, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;199 words&nbsp;·&nbsp;Jamaisvu</footer><a class=entry-link aria-label="post link to Obsidian 多端同步：用七牛云 + Remotely Save 实现手机与电脑无缝协作" href=https://tech.jamaisvu.cn/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-+-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/></a></article><article class=post-entry><header class=entry-header><h2>图床服务保姆级教程 2025白嫖github 彻底释放本地空间!</h2></header><div class=entry-content><p>还在手忙脚乱地在服务器和客户端之间传图片？还在为博客图片引用失效而头疼？其实这些都多余了！
-拥有图床服务，就等于拥有了一个多端同步的媒体库——不仅能存图片，还能存GIF、PDF、文本文件等。写博客时无需纠结复杂格式，只需掌握简单的Markdown语法，就能快速搭建便捷又优雅的写作环境。
-正文 一、环境准备 本次搭建需用到以下工具，点击名称可直接跳转至对应下载/官网页面：
-PicGo：图床上传工具，GitHub官方仓库（可下载最新版） GitHub仓库：用于存储图片的免费云端空间 Typora：Markdown编辑器，官方下载链接 WordPress：博客发布平台（可选，也可适配其他平台） 二、最终实现效果 截图后按下 Ctrl+C 复制，再到Typora中 Ctrl+V 粘贴，即可自动生成「Markdown语法+图片URL」的内容；发布时全选Typora内容，复制到博客发布页，一键完成发布。
-三、详细搭建步骤 1. 创建GitHub仓库（存储图片的“云端硬盘”） 登录GitHub，新建仓库，配置参考下图： 关键注意：仓库必须设置为「Public」，否则图片外链无法公开访问。 2. 创建GitHub Token（授权PicGo操作仓库） 进入GitHub的「Settings → Developer settings → Personal access tokens」，选择**「Generate new token (classic)」**（重点！选“classic”，新版token可能导致PicGo无权访问）： 权限配置：勾选「repo」分类下的所有权限（确保PicGo能上传/管理图片）： 生成Token后立即保存（刷新页面后无法找回）。 3. 配置PicGo（将图片上传到GitHub） 打开PicGo，在左侧选择「图床设置 → GitHub图床」。
-关键参数填写（重点是「自定义域名」，根据需求二选一）：
-海外服务器/需科学上网：
-1https://raw.githubusercontent.com/你的用户名/你的仓库名/refs/heads/你的分支名/ 国内服务器（加速访问）：
-1https://cdn.jsdelivr.net/gh/你的账户名/你的仓库名@你的分支名/ 其他参数：依次填写「GitHub用户名」「仓库名」「分支名（默认main）」「刚才保存的Token」，最后点击「确定」并设为默认图床。
-4. 关联Typora（实现“截图即上传”） 打开Typora，进入「文件 → 偏好设置 → 图像」。
-配置如下（参考图片）： 勾选「插入图片时自动上传」 上传服务选择「PicGo」 「PicGo路径」选择本地的「PicGo.exe」文件（如D:\PicGo\PicGo.exe） 点击「验证图片上传选项」，提示“成功”即配置完成。
-四、测试验证 用Windows截图快捷键 Win + Shift + S 截取任意内容。 切换到Typora，按下 Ctrl+V 粘贴。 若PicGo左下角弹出「上传成功」通知，且Typora中显示图片（而非本地路径），则图床搭建成功！ 后记：为什么选GitHub而非国内OSS？ 我的WordPress强制开启了HTTPS，而七牛云等国内免费OSS提供的域名多为HTTP，需额外申请SSL证书（且需国内备案域名），流程繁琐。
-GitHub自带HTTPS，无需备案且完全免费，虽国内访问速度略慢，但可通过「jsdelivr CDN」加速；若追求更稳定的国内访问，也可替换为Gitee仓库（操作流程一致）。
-...</p></div><footer class=entry-footer><span title='2025-08-31 00:00:00 +0000 UTC'>August 31, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;81 words&nbsp;·&nbsp;Jamaisvu</footer><a class=entry-link aria-label="post link to 图床服务保姆级教程 2025白嫖github 彻底释放本地空间!" href=https://tech.jamaisvu.cn/posts/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B-2025%E7%99%BD%E5%AB%96github-%E5%BD%BB%E5%BA%95%E9%87%8A%E6%94%BE%E6%9C%AC%E5%9C%B0%E7%A9%BA%E9%97%B4/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://tech.jamaisvu.cn/hub/>« Prev</a>
+...</p></div><footer class=entry-footer><span title='2025-09-06 00:00:00 +0000 UTC'>September 6, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;199 words&nbsp;·&nbsp;Jamaisvu</footer><a class=entry-link aria-label="post link to Obsidian 多端同步：用七牛云 + Remotely Save 实现手机与电脑无缝协作" href=https://tech.jamaisvu.cn/posts/obsidian-%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91-+-remotely-save-%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E6%97%A0%E7%BC%9D%E5%8D%8F%E4%BD%9C/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://tech.jamaisvu.cn/hub/>« Prev</a>
 <a class=next href=https://tech.jamaisvu.cn/hub/page/3/>Next »</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://tech.jamaisvu.cn/>Jamaisvu's blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
