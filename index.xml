@@ -11,13 +11,37 @@
     </image>
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 May 2026 19:10:59 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 03:18:43 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Surabaya</title>
+      <link>https://tech.jamaisvu.cn/music/surabaya/</link>
+      <pubDate>Mon, 04 May 2026 03:18:43 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/music/surabaya/</guid>
+      <description>&lt;p&gt;一只来自印尼的可爱乐队，觉得主唱的唱法好温柔，小小的音墙很朦胧很好听。我爱盯鞋。&lt;/p&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;div style=&#34;margin: 20px 0;&#34;&gt;
+    
+    &lt;meting-js
+        auto=&#34;https://y.music.163.com/m/song?id=2736181140&amp;amp;uct2=XivowAAGMC5P8cu%2BwDmFCA%3D%3D&amp;amp;fx-wechatnew=t1&amp;amp;fx-wxqd=c&amp;amp;fx-wordtest=t1&amp;amp;fx-listentest=t3&amp;amp;H5_DownloadVIPGift=&amp;amp;playerUIModeId=76001&amp;amp;PlayerStyles_SynchronousSharing=t3&amp;amp;dlt=0846&amp;amp;app_version=9.3.60&amp;amp;sc=wm&amp;amp;tn=&#34;
+        theme=&#34;#2980b9&#34;
+        mutex=&#34;true&#34;
+        list-folded=&#34;true&#34;
+        api=&#34;https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#34;
+    &gt;
+    &lt;/meting-js&gt;
+    
+    
+&lt;/div&gt;</description>
+    </item>
+    <item>
       <title>when the party&#39;s over (Miro Remix)</title>
-      <link>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</link>
+      <link>https://tech.jamaisvu.cn/music/when-the-partys-over/</link>
       <pubDate>Sun, 03 May 2026 19:10:59 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</guid>
+      <guid>https://tech.jamaisvu.cn/music/when-the-partys-over/</guid>
       <description>&lt;p&gt;miro是xeuphoria的大号，人称钢琴小王子。
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
@@ -64,9 +88,9 @@
     </item>
     <item>
       <title>111511</title>
-      <link>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</link>
+      <link>https://tech.jamaisvu.cn/music/111511/</link>
       <pubDate>Sun, 26 Apr 2026 05:33:10 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/put-english-slug-here-for-seo/</guid>
+      <guid>https://tech.jamaisvu.cn/music/111511/</guid>
       <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
@@ -143,9 +167,9 @@ C.一个进程可以创建和撤销多个线程;同一个进程中的多个线�
     </item>
     <item>
       <title>Celestial Flow (Original Mix)</title>
-      <link>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</link>
+      <link>https://tech.jamaisvu.cn/music/celestial-flow/</link>
       <pubDate>Wed, 22 Apr 2026 21:17:25 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/celestial-flow-simon-oshine/</guid>
+      <guid>https://tech.jamaisvu.cn/music/celestial-flow/</guid>
       <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/meting@2/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
@@ -179,9 +203,9 @@ C.一个进程可以创建和撤销多个线程;同一个进程中的多个线�
     </item>
     <item>
       <title>Yellow</title>
-      <link>https://tech.jamaisvu.cn/music/yellow-coldplay/</link>
+      <link>https://tech.jamaisvu.cn/music/yellow/</link>
       <pubDate>Wed, 22 Apr 2026 10:00:00 +0800</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/yellow-coldplay/</guid>
+      <guid>https://tech.jamaisvu.cn/music/yellow/</guid>
       <description>&lt;p&gt;这是我最喜欢的一首英伦摇滚，前奏吉他一响，满眼都是繁星。听了很多年&lt;/p&gt;
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.css&#34;&gt;
 &lt;script src=&#34;https://npm.elemecdn.com/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
@@ -720,13 +744,6 @@ GitHub自带HTTPS，无需备案且完全免费，虽国内访问速度略慢，
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8000:80&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# 宿主机 8000 端口 → 容器 80 端口（宿主机端口可改，容器端必须是 80）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 其他配置（如数据库链接、 volumes 等）省略，需自行补充&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nginx Proxy Manager 端口映射配置&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://tech.jamaisvu.cn/music/you-may-love/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://tech.jamaisvu.cn/music/you-may-love/</guid>
-      <description>&lt;p&gt;分享Simon O&amp;rsquo;Shine的单曲《You May Love (Original Mix)》: https://163cn.tv/5AUiCok (来自@网易云音乐)&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
