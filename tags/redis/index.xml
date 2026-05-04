@@ -11,8 +11,127 @@
     </image>
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 May 2026 06:18:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2026 00:01:55 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>并发控制与缓存一致性技术选型之权衡术</title>
+      <link>https://tech.jamaisvu.cn/posts/concurrency-control-and-cache-consistency/</link>
+      <pubDate>Tue, 05 May 2026 00:01:55 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/concurrency-control-and-cache-consistency/</guid>
+      <description>&lt;h2 id=&#34;核心权衡点锁的量级与性能损耗的权衡&#34;&gt;核心权衡点：锁的量级与性能损耗的权衡&lt;/h2&gt;
+&lt;p&gt;选择哪种并发控制或一致性手段，本质是在 &lt;strong&gt;一致性强度&lt;/strong&gt; 与 &lt;strong&gt;系统吞吐 / 延迟&lt;/strong&gt; 之间做交易。不存在普适最优解，只有基于回源成本、并发量级和跨实例协调代价的&lt;strong&gt;按需组合&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量级轻 → 延迟低，但保护弱&lt;/strong&gt;：进程内 singleflight，非阻塞软标记，纯 TTL 过期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量级重 → 一致性强，但代价高&lt;/strong&gt;：跨实例分布式锁，强同步写穿透。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面从“数据流”与“控制面”两个维度梳理关键技术，并给出组合原则。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-数据一致性模式如何同步缓存与数据库&#34;&gt;1. 数据一致性模式（如何同步缓存与数据库）&lt;/h2&gt;
+&lt;p&gt;这些模式关注&lt;strong&gt;当源数据变更时，缓存如何更新或失效&lt;/strong&gt;，不直接涉及并发控制，但影响选型。&lt;/p&gt;
+&lt;h3 id=&#34;cache-aside旁路缓存&#34;&gt;Cache Aside（旁路缓存）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模式&lt;/strong&gt;：读未命中则查 DB 并回写缓存；写直接更新 DB，然后&lt;strong&gt;删除&lt;/strong&gt;缓存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁量级&lt;/strong&gt;：写操作无锁，仅单一 DEL；读可配合 singleflight 防击穿。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权衡&lt;/strong&gt;：最终一致窗口 = 删缓存到下次重建之间；删除失败需重试或 TTL 兜底。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用&lt;/strong&gt;：读多写少，可接受短暂不一致的场景（大多数互联网业务）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;readwrite-through读写穿透&#34;&gt;Read/Write Through（读写穿透）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模式&lt;/strong&gt;：缓存层代理所有 DB 读写，业务只与缓存交互。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁量级&lt;/strong&gt;：同步写，需保证缓存与 DB 的原子更新，往往引入分布式锁或事务消息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权衡&lt;/strong&gt;：一致性强，但每次写都要同时操作缓存+DB，写入延迟高，实现复杂。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;write-behind异步回写&#34;&gt;Write Behind（异步回写）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模式&lt;/strong&gt;：写只更新缓存，异步批量刷回 DB。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁量级&lt;/strong&gt;：缓存写入轻量，但需要队列/日志保证不丢数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权衡&lt;/strong&gt;：写入性能极高，一致性很弱，允许丢数据窗口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;延迟双删与订阅刷新&#34;&gt;延迟双删与订阅刷新&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;延迟双删&lt;/strong&gt;：写 DB 前先删缓存，DB 更新完成后延迟再删一次（用于规避主从延迟导致的不一致）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Binlog 订阅（如 Canal）&lt;/strong&gt;：异步监听 DB 变更流水，精确删除或更新缓存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁量级&lt;/strong&gt;：均为异步，无额外锁竞争，但引入消息延迟和架构复杂度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;本系统选择&lt;/strong&gt;：&lt;strong&gt;Cache Aside + MQ 异步删除&lt;/strong&gt;，利用已有死信队列保障最终一致性，兼顾简单和可靠。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-并发控制机制如何防击穿防并发重建&#34;&gt;2. 并发控制机制（如何防击穿、防并发重建）&lt;/h2&gt;
+&lt;h3 id=&#34;singleflight进程内请求合并&#34;&gt;singleflight（进程内请求合并）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量级&lt;/strong&gt;：极轻，无网络开销，仅内存 map + 阻塞等待。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保护范围&lt;/strong&gt;：单进程内相同请求的合并。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能损耗&lt;/strong&gt;：少数请求等待首次执行完毕，延迟可忽略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用&lt;/strong&gt;：高并发下同一批缓存键临时穿透 Redis 的场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;分布式锁如-redis-set-nx-ex&#34;&gt;分布式锁（如 Redis SET NX EX）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量级&lt;/strong&gt;：重，涉及网络往返、轮询等待、锁 TTL 管理和 Lua 释放。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保护范围&lt;/strong&gt;：跨实例互斥，确保单点重建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能损耗&lt;/strong&gt;：锁竞争导致额外延迟（轮询 100ms+），可能成为瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用&lt;/strong&gt;：回源成本极其高昂且要求强一致的场景（如复杂报表、详情缓存重建）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;软标记--setnx-提示非阻塞跨实例通知&#34;&gt;软标记 / SETNX 提示（非阻塞跨实例通知）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量级&lt;/strong&gt;：极轻，一次 Redis SETNX 无等待。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保护范围&lt;/strong&gt;：跨实例“知情权”，让其他实例主动降级而非常规等待。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能损耗&lt;/strong&gt;：基本无延迟，仅需判断标记存在与否。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用&lt;/strong&gt;：重建允许降级或短暂不一致的场景（批量读、冷缓存预热）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;仅靠-ttl&#34;&gt;仅靠 TTL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量级&lt;/strong&gt;：无。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保护&lt;/strong&gt;：无任何并发控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;损耗&lt;/strong&gt;：零，但可能发生缓存击穿或雪崩。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用&lt;/strong&gt;：数据可大量容忍陈旧，或变更极低频。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-组合决策矩阵&#34;&gt;3. 组合决策矩阵&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;场景&lt;/th&gt;
+          &lt;th&gt;回源成本&lt;/th&gt;
+          &lt;th&gt;推荐组合&lt;/th&gt;
+          &lt;th&gt;理由&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;视频实体批量读取（高频、可降级）&lt;/td&gt;
+          &lt;td&gt;中（批量主键查询）&lt;/td&gt;
+          &lt;td&gt;singleflight + 软标记&lt;/td&gt;
+          &lt;td&gt;进程内去重 + 跨实例非阻塞防多余穿透&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;视频详情页读取（中频、不期望旧数据）&lt;/td&gt;
+          &lt;td&gt;中高（复杂 SQL 或关联查询）&lt;/td&gt;
+          &lt;td&gt;分布式锁 + double-check&lt;/td&gt;
+          &lt;td&gt;强控单实例重建，避免多实例重复计算&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;关注流冷缓存重建（低频、允许最终一致）&lt;/td&gt;
+          &lt;td&gt;高（多表聚合排序）&lt;/td&gt;
+          &lt;td&gt;软标记 + 单一执行&lt;/td&gt;
+          &lt;td&gt;不强制等待，接受少量重复重建成本优于锁等待&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;写操作后缓存失效（Cache Aside）&lt;/td&gt;
+          &lt;td&gt;极低（DEL 命令）&lt;/td&gt;
+          &lt;td&gt;无需锁，直接 DEL&lt;/td&gt;
+          &lt;td&gt;并发写由 DB 串行化，缓存仅打扫战场&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-一句话选型指南&#34;&gt;4. 一句话选型指南&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;先上 &lt;strong&gt;singleflight&lt;/strong&gt;，解决绝大多数进程内并发穿透。&lt;/li&gt;
+&lt;li&gt;多实例部署且重建轻量时，补 &lt;strong&gt;软标记&lt;/strong&gt; 提示降级，避免引入锁。&lt;/li&gt;
+&lt;li&gt;只有当“多个实例并发重建会造成无法接受的成本或数据矛盾”时，再引入 &lt;strong&gt;分布式锁&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;缓存更新一律走 &lt;strong&gt;Cache Aside 异步删除&lt;/strong&gt;，放弃复杂同步，靠重试和 TTL 兜底。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;记住：锁是最后的手段，不是默认选项。&lt;/strong&gt; 能靠最终一致和降级解决的，不要用强同步去惩罚高并发。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>悲观锁、乐观锁与三大分布式锁总结</title>
       <link>https://tech.jamaisvu.cn/posts/classic-distributed-locks/</link>

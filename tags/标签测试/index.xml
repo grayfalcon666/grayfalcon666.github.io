@@ -14,7 +14,7 @@
     <lastBuildDate>Fri, 24 Apr 2026 23:06:58 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Golang并发编程</title>
+      <title>golang并发编程</title>
       <link>https://tech.jamaisvu.cn/posts/golang-concurrency/</link>
       <pubDate>Fri, 24 Apr 2026 23:06:58 +0800</pubDate>
       <guid>https://tech.jamaisvu.cn/posts/golang-concurrency/</guid>

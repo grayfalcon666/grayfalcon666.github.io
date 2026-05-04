@@ -3,27 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tech.jamaisvu.cn/categories/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/posts/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/redis/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
-    <loc>https://tech.jamaisvu.cn/posts/classic-distributed-locks/</loc>
-    <lastmod>2026-05-04T06:18:18+08:00</lastmod>
+    <loc>https://tech.jamaisvu.cn/posts/concurrency-control-and-cache-consistency/</loc>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2026-05-05T00:01:55+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/posts/classic-distributed-locks/</loc>
     <lastmod>2026-05-04T06:18:18+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/music/surabaya/</loc>
@@ -108,9 +114,6 @@
     <lastmod>2025-10-03T17:08:45+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/posts/20250928233615-%E4%B8%80%E7%AF%87%E8%AE%B2%E6%B8%85api%E4%B8%8Ewebhook/</loc>
-    <lastmod>2025-09-28T23:36:15+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/tags/%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2025-09-28T23:36:15+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/posts/20250927225535-excalicloudstore-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
