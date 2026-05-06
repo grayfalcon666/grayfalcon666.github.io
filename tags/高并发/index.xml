@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>高并发 on Jamaisvu&#39;s blog</title>
+    <link>https://tech.jamaisvu.cn/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/</link>
+    <description>Recent content in 高并发 on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.161.1</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2026 06:38:40 +0800</lastBuildDate>
+    <atom:link href="https://tech.jamaisvu.cn/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>分析并发问题的通用方法</title>
+      <link>https://tech.jamaisvu.cn/posts/a-general-method-for-analyzing-concurrent-problems/</link>
+      <pubDate>Thu, 07 May 2026 06:38:40 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/a-general-method-for-analyzing-concurrent-problems/</guid>
+      <description>&lt;h2 id=&#34;概念定义&#34;&gt;概念定义&lt;/h2&gt;
+&lt;h3 id=&#34;到底什么是并发&#34;&gt;到底什么是并发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;并发 = 多个操作在同一时间窗口内同时进行，无论来自同一人还是不同人。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为数据只有一份，多人同时操纵就会有风险：谁说了算呢？所以会产生竟态问题。cpu的并发就是最好的理解方式了：cpu核只有一个的情况下，不可能同一时刻给多人使用，所以只能大家轮着时间切片用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一条数据会不会在同一时刻被两个操作同时修改&lt;/strong&gt;？是的话就是存在并发问题。
+&lt;img alt=&#34;image.png|325&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/refs/heads/main//20260105145819249.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;什么是分布式&#34;&gt;什么是分布式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分布式&lt;/strong&gt;：系统本身被拆分成了多个服务/节点。&lt;strong&gt;系统架构是分散的&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个人讲话给自己听，很难搞错；
+三个人ABC一起传话，中间的B听错了，那传到C耳朵里的就变了。大家拿着的信息不一样了，所以分布式场景就是要解决怎么尽量去统一大家信息的问题。&lt;/p&gt;
+&lt;h3 id=&#34;什么是幂等&#34;&gt;什么是幂等&lt;/h3&gt;
+&lt;p&gt;幂等就是：同一个操作，执行一次和多次，结果不变。&lt;/p&gt;
+&lt;p&gt;为什么我要单独把他拎出来讲？因为不幂等的设计，既是并发问题，也是分布式问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;并发如何体现：&lt;/strong&gt;
+多个人同时下单;
+一个人同一时刻点赞十次;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分布式如何体现：&lt;/strong&gt;
+项目有三个角色，分别是生产者、MQ、消费者;
+还可能是更复杂的微服务项目;&lt;/p&gt;
+&lt;h2 id=&#34;通用分析方法&#34;&gt;通用分析方法&lt;/h2&gt;
+&lt;p&gt;首先我想声明一句：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在分布式并发问题中，任何不根据具体情景分析，只讲技巧的，都是耍流氓！并发场景信息杂糅、需求各不一致。技术本身是为了解决问题的，脱离了真实情况的技术毫无用处，反而成了心智负担。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;四个问题四个数&#34;&gt;四个问题，四个数&lt;/h3&gt;
+&lt;p&gt;遇到一个&lt;strong&gt;百万级QPS以内的&lt;/strong&gt;分布式、并发场景，依次问四个问题，就能精准锁定架构与技术方案方向：&lt;/p&gt;
+&lt;h4 id=&#34;1-人数&#34;&gt;1. 人数&lt;/h4&gt;
+&lt;p&gt;这个操作是 “单人” 还是 “多人”？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单人操作（比如用户修改自己的头像）：不会有多人写冲突，只可能有重复提交（浏览器重试），用&lt;strong&gt;幂等键&lt;/strong&gt;就够了（如 Redis SETNX）。&lt;/li&gt;
+&lt;li&gt;多人操作（比如点赞、关注、下单扣库存）：&lt;strong&gt;有并发争抢、写冲突风险&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-数据库行数--表数&#34;&gt;2. 数据库行数 &amp;amp; 表数&lt;/h4&gt;
+&lt;p&gt;这个操作是 “单行单表数据” 还是 “多行 / 跨表数据”？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单行单表（点赞计数、关注关系）：&lt;strong&gt;数据库层的唯一索引 + 状态字段&lt;/strong&gt;可以直接解决。&lt;/li&gt;
+&lt;li&gt;多行或跨表（下单：扣库存→生成订单→扣钱）：&lt;strong&gt;数据库行锁或乐观锁（version）&lt;/strong&gt; 是核心，唯一索引只能防重复记录，但防不了库存超卖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-重试数&#34;&gt;3. 重试数&lt;/h4&gt;
+&lt;p&gt;错误可以 “直接返回” 还是必须 “排队等待”？也就是业务对失败的容忍度如何？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以直接返回 “请稍后重试”（如点赞冲突、重复领券）：用&lt;strong&gt;乐观锁&lt;/strong&gt;或&lt;strong&gt;唯一键冲突&lt;/strong&gt;，返回失败由客户端自行重试。&lt;/li&gt;
+&lt;li&gt;必须排队串行执行、不能失败丢弃（如秒杀扣库存、限量抢购）：用&lt;strong&gt;行锁&lt;/strong&gt;或&lt;strong&gt;消息队列&lt;/strong&gt;串行化，牺牲部分吞吐，强保数据不出错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-一致数&#34;&gt;4. 一致数&lt;/h4&gt;
+&lt;p&gt;业务需要 “强一致性” 还是 “最终一致性”？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强一致性（转账、钱包扣款、资金交易）：必须即时数据一致，不能异步兜底，要用&lt;strong&gt;分布式事务、行锁、悲观锁&lt;/strong&gt;，不能靠异步补偿。&lt;/li&gt;
+&lt;li&gt;最终一致性（普通下单、发积分、返优惠券、日志统计）：允许短暂数据不一致，可异步慢慢补齐，优先用&lt;strong&gt;MQ 异步、本地消息表、事务消息&lt;/strong&gt;解耦，提升吞吐与可用性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;情景演练&#34;&gt;情景演练&lt;/h3&gt;
+&lt;h4 id=&#34;情景一关注--取关&#34;&gt;情景一：关注 / 取关&lt;/h4&gt;
+&lt;p&gt;问题 答案
+人数 多人操作（多人同时对同一博主关注/取关，粉丝数共享）
+表数 单行单表（核心socials一行，accounts计数的更新属于事务外 MQ）
+重试 直接返回成功（重复操作不报错，与幂等一致）
+一致性 核心强一致（关系状态原子翻转），计数最终一致（MQ 异步）&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
