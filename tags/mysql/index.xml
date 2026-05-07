@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MySQL on Jamaisvu&#39;s blog</title>
+    <link>https://tech.jamaisvu.cn/tags/mysql/</link>
+    <description>Recent content in MySQL on Jamaisvu&#39;s blog</description>
+    <image>
+      <title>Jamaisvu&#39;s blog</title>
+      <url>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</url>
+      <link>https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO/main/1756602474727.jpg</link>
+    </image>
+    <generator>Hugo -- 0.161.1</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2026 16:39:57 +0800</lastBuildDate>
+    <atom:link href="https://tech.jamaisvu.cn/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql知识点</title>
+      <link>https://tech.jamaisvu.cn/posts/mysql-basic-knowledge/</link>
+      <pubDate>Thu, 07 May 2026 16:39:57 +0800</pubDate>
+      <guid>https://tech.jamaisvu.cn/posts/mysql-basic-knowledge/</guid>
+      <description>&lt;p&gt;声明：本文章根据 &lt;a href=&#34;https://xiaolincoding.com/mysql/lock/mysql_lock.html#%E5%85%A8%E5%B1%80%E9%94%81&#34;&gt;小林coding 图解mysql&lt;/a&gt;进行些许改编。侵权删。本文持续更新。&lt;/p&gt;
+&lt;h2 id=&#34;索引篇&#34;&gt;索引篇&lt;/h2&gt;
+&lt;h3 id=&#34;什么是索引&#34;&gt;什么是索引&lt;/h3&gt;
+&lt;p&gt;当你想查阅书中某个知识的内容，你会选择一页一页的找呢？还是在书的目录去找呢？&lt;/p&gt;
+&lt;p&gt;傻瓜都知道时间是宝贵的，当然是选择在书的目录去找，找到后再翻到对应的页。书中的&lt;strong&gt;目录&lt;/strong&gt;，就是充当&lt;strong&gt;索引&lt;/strong&gt;的角色，方便我们快速查找书中的内容，所以索引是以空间换时间的设计思想。&lt;/p&gt;
+&lt;p&gt;那换到数据库中，索引的定义就是帮助存储引擎快速获取数据的一种数据结构，形象的说就是&lt;strong&gt;索引是数据的目录&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;下图是 MySQL 的结构图，索引和数据就是位于存储引擎中：
+&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/main/20260507024215729.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;索引分类&#34;&gt;索引分类&lt;/h3&gt;
+&lt;h4 id=&#34;按数据结构分类&#34;&gt;按「数据结构」分类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;B+tree索引、Hash索引、Full-text索引&lt;/strong&gt;。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/main/20260507024340782.png&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;按物理存储分类&#34;&gt;按「物理存储」分类&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;聚簇索引（主键索引）、二级索引（辅助索引）&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主键索引的 B+Tree 的叶子节点存放的是实际数据，所有完整的用户记录都存放在主键索引的 B+Tree 的叶子节点里；&lt;/li&gt;
+&lt;li&gt;二级索引的 B+Tree 的叶子节点存放的是主键值，而不是实际数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，在查询时使用了二级索引，如果查询的数据能在二级索引里查询的到，那么就不需要回表，这个过程就是覆盖索引。如果查询的数据不在二级索引里，就会先检索二级索引，找到对应的叶子节点，获取到主键值后，然后再检索主键索引，就能查询到数据了，这个过程就是回表。&lt;/p&gt;
+&lt;h4 id=&#34;按字段特性分类&#34;&gt;按「字段特性」分类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主键索引、唯一索引、普通索引、前缀索引&lt;/strong&gt;。
+唯一约束（UNIQUE KEY）就是一种索引
+所以主键就是索引。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;on-duplicate-key-update&#34;&gt;&lt;code&gt;ON DUPLICATE KEY UPDATE&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;提供&lt;strong&gt;无则插入、有则更新&lt;/strong&gt; 的原子性upsert命令，&lt;strong&gt;避免先查再写的并发问题。&lt;/strong&gt; 常用于实现幂等写入，但不属于乐观锁。&lt;/p&gt;
+&lt;p&gt;MySQL 在执行 &lt;code&gt;INSERT ... ON DUPLICATE KEY UPDATE&lt;/code&gt; 后，会返回一个整数值告诉你&lt;strong&gt;有多少行被影响了&lt;/strong&gt;。
+规则如下（重要，正是因为这里容易错）：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;实际发生的情况&lt;/th&gt;
+          &lt;th&gt;affected_rows&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;真正插入了一条新记录&lt;/td&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;原来没有这行，插入成功&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;更新了一条记录，并且&lt;strong&gt;数据真的被修改了&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;冲突后走 UPDATE，且字段值确实变了&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;更新了一条记录，但&lt;strong&gt;数据没有任何变化&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;0&lt;/td&gt;
+          &lt;td&gt;冲突后走 UPDATE，但 SET 后的值和原来一样&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;按字段个数分类&#34;&gt;按「字段个数」分类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;单列索引、联合索引&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;btree&#34;&gt;B+Tree&lt;/h3&gt;
+&lt;p&gt;B+Tree 是一种多叉树，叶子节点才存放数据，非叶子节点只存放索引，而且每个节点里的数据是&lt;strong&gt;按主键顺序存放&lt;/strong&gt;的。每一层父节点的索引值都会出现在下层子节点的索引值中，因此在叶子节点中，包括了所有的索引值信息，并且每一个叶子节点都有两个指针，分别指向下一个叶子节点和上一个叶子节点，形成一个双向链表。&lt;/p&gt;
+&lt;p&gt;图有误，叶子节点是双向链表
+&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/grayfalcon666/OSS-FOR-PICGO2/main/20260507024802899.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;通过主键查询商品数据的过程:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;比如，我们执行了下面这条查询语句：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
