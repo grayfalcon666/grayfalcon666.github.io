@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Apr 2026 14:50:52 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 09:04:27 +0800</lastBuildDate>
     <atom:link href="https://tech.jamaisvu.cn/moments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>每日两句</title>
+      <link></link>
+      <pubDate>Tue, 12 May 2026 09:04:27 +0800</pubDate>
+      <guid></guid>
+      <description>&lt;p&gt;使用了gitsync进行同步&lt;/p&gt;</description>
+    </item>
     <item>
       <title>每日两句</title>
       <link></link>
@@ -149,13 +156,6 @@
       <pubDate>Sat, 04 Oct 2025 18:55:55 +0800</pubDate>
       <guid></guid>
       <description>&lt;p&gt;继续给hugo-api完善了一下，现在可以很方便发布动态了。并且从原来的发送json改成了表单发送，所以可以直接复制粘贴一整篇markdown文章，不用考虑转义了。打算开源。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link></link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid></guid>
-      <description></description>
     </item>
   </channel>
 </rss>

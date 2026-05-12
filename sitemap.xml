@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tech.jamaisvu.cn/categories/</loc>
-    <lastmod>2026-05-07T16:39:57+08:00</lastmod>
-  </url><url>
     <loc>https://tech.jamaisvu.cn/</loc>
+    <lastmod>2026-05-12T09:04:27+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/moments/</loc>
+    <lastmod>2026-05-12T09:04:27+08:00</lastmod>
+  </url><url>
+    <loc>https://tech.jamaisvu.cn/categories/</loc>
     <lastmod>2026-05-07T16:39:57+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/tags/mysql/</loc>
@@ -58,9 +61,6 @@
   </url><url>
     <loc>https://tech.jamaisvu.cn/music/wuthering-heights/</loc>
     <lastmod>2026-05-03T03:30:06+08:00</lastmod>
-  </url><url>
-    <loc>https://tech.jamaisvu.cn/moments/</loc>
-    <lastmod>2026-04-26T14:50:52+08:00</lastmod>
   </url><url>
     <loc>https://tech.jamaisvu.cn/music/111511/</loc>
     <lastmod>2026-04-26T05:33:10+08:00</lastmod>
